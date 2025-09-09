@@ -6,7 +6,8 @@ Author: Victor Collins Oppon, FCCA, MBA, BSc.
         Data Scientist and AI Consultant
         Videbimus AI
         www.videbimusai.com
-Version: 1.0.0
+Version: 1.0.2 - Self-contained deployment with local data files
+Build: 2024-09-08-FINAL
 """
 
 import streamlit as st
@@ -22,9 +23,9 @@ sys.path.append(str(current_dir))
 
 # Import our custom modules
 from config.app_config import config
+from utils.feature_explainer import FeatureExplainer
 from utils.data_loader import get_data_loader
 from utils.visualization_utils import get_visualizer
-from utils.feature_explainer import FeatureExplainer
 
 def main():
     """Main application entry point."""
@@ -47,13 +48,6 @@ def main():
             st.write(f"{status_icon} {component.replace('_', ' ').title()}")
         st.stop()
     
-    # Main Application Header
-    st.markdown(f"""
-        <div class='main-header'>
-            <h1>{config.APP_NAME}</h1>
-            <p>{config.APP_DESCRIPTION}</p>
-        </div>
-    """, unsafe_allow_html=True)
     
     # Initialize session state for navigation
     if 'current_page' not in st.session_state:
@@ -115,6 +109,16 @@ def main():
     </div>
     """, unsafe_allow_html=True)
     
+    # Show simple header on non-Welcome pages for context
+    # This is placed after navigation processing to ensure session state is up-to-date
+    if st.session_state.current_page != "Welcome":
+        st.markdown(f"""
+            <div class='main-header'>
+                <h1>{config.APP_NAME}</h1>
+                <p>{config.APP_DESCRIPTION}</p>
+            </div>
+        """, unsafe_allow_html=True)
+    
     page = st.session_state.current_page
     
     # Route to appropriate page with error handling
@@ -164,16 +168,17 @@ def show_welcome_page(data_loader, visualizer):
             
         st.markdown("""
         <div style='background: linear-gradient(135deg, #2E8B5720, #4682B420); 
-                    padding: 2rem; border-radius: 15px; height: 300px;
-                    border-left: 5px solid #2E8B57;'>
-            <h3 style='color: #2E8B57;'>For Property Professionals</h3>
-            <ul>
-                <li><strong>Institutional-Grade Valuations</strong><br/>Same techniques used by leading investment firms</li>
-                <li><strong>Market Intelligence</strong><br/>Investment opportunities and value drivers</li>
-                <li><strong>Professional Reports</strong><br/>Executive dashboards and strategic insights</li>
-                <li><strong>Easy-to-Use Interface</strong><br/>No technical expertise required</li>
+                    padding: 1.5rem; border-radius: 15px; min-height: 320px;
+                    border-left: 5px solid #2E8B57; overflow: hidden;
+                    box-sizing: border-box; display: flex; flex-direction: column;'>
+            <h3 style='color: #2E8B57; margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem;'>For Property Professionals</h3>
+            <ul style='margin: 0; padding-left: 1.2rem; flex-grow: 1; line-height: 1.4;'>
+                <li style='margin-bottom: 0.8rem;'><strong>Institutional-Grade Valuations</strong><br/><span style='font-size: 0.9rem; color: #666;'>Same techniques used by leading investment firms</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Market Intelligence</strong><br/><span style='font-size: 0.9rem; color: #666;'>Investment opportunities and value drivers</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Professional Reports</strong><br/><span style='font-size: 0.9rem; color: #666;'>Executive dashboards and strategic insights</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Easy-to-Use Interface</strong><br/><span style='font-size: 0.9rem; color: #666;'>No technical expertise required</span></li>
             </ul>
-            <p><strong>Perfect for:</strong> Appraisers, Agents, Investors, Developers</p>
+            <p style='margin-top: auto; margin-bottom: 0; padding-top: 1rem; font-weight: bold; font-size: 0.9rem; color: #2E8B57;'>Perfect for: Appraisers, Agents, Investors, Developers</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -184,16 +189,17 @@ def show_welcome_page(data_loader, visualizer):
             
         st.markdown("""
         <div style='background: linear-gradient(135deg, #4682B420, #FF634720); 
-                    padding: 2rem; border-radius: 15px; height: 300px;
-                    border-left: 5px solid #4682B4;'>
-            <h3 style='color: #4682B4;'>For Technical Professionals</h3>
-            <ul>
-                <li><strong>Production ML Pipeline</strong><br/>Complete 9-phase methodology with audit trails</li>
-                <li><strong>Model Interpretability</strong><br/>SHAP analysis and feature importance</li>
-                <li><strong>Performance Metrics</strong><br/>Cross-validated R² = 0.904, comprehensive evaluation</li>
-                <li><strong>Technical Documentation</strong><br/>Architecture, algorithms, and validation</li>
+                    padding: 1.5rem; border-radius: 15px; min-height: 320px;
+                    border-left: 5px solid #4682B4; overflow: hidden;
+                    box-sizing: border-box; display: flex; flex-direction: column;'>
+            <h3 style='color: #4682B4; margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem;'>For Technical Professionals</h3>
+            <ul style='margin: 0; padding-left: 1.2rem; flex-grow: 1; line-height: 1.4;'>
+                <li style='margin-bottom: 0.8rem;'><strong>Production ML Pipeline</strong><br/><span style='font-size: 0.9rem; color: #666;'>Complete 9-phase methodology with audit trails</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Model Interpretability</strong><br/><span style='font-size: 0.9rem; color: #666;'>SHAP analysis and feature importance</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Performance Metrics</strong><br/><span style='font-size: 0.9rem; color: #666;'>Cross-validated R² = 0.904, comprehensive evaluation</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Technical Documentation</strong><br/><span style='font-size: 0.9rem; color: #666;'>Architecture, algorithms, and validation</span></li>
             </ul>
-            <p><strong>Perfect for:</strong> ML Engineers, Data Scientists, Researchers</p>
+            <p style='margin-top: auto; margin-bottom: 0; padding-top: 1rem; font-weight: bold; font-size: 0.9rem; color: #4682B4;'>Perfect for: ML Engineers, Data Scientists, Researchers</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -203,7 +209,7 @@ def show_welcome_page(data_loader, visualizer):
     # Load dynamic metrics
     model_metrics = data_loader.get_model_performance_metrics()
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     
     with col1:
         accuracy = model_metrics.get('r2_score', 0.904)
@@ -227,14 +233,6 @@ def show_welcome_page(data_loader, visualizer):
             "Prediction Error (RMSE)", 
             f"{rmse:.4f}",
             delta="Cross-Validated"
-        )
-    
-    with col4:
-        training_time = model_metrics.get('execution_time_minutes', 24)
-        st.metric(
-            "Training Time", 
-            f"{training_time:.1f}min",
-            delta="Full Pipeline"
         )
     
     # Feature Highlights
@@ -518,7 +516,7 @@ def show_executive_dashboard(data_loader, visualizer):
         # Calculate feature engineering expansion
         original_features = 81  # Known from dataset
         feature_count = model_metrics.get('feature_count', 0)
-        if feature_count > 0:
+        if feature_count > 0 and original_features > 0:
             expansion_pct = round(((feature_count - original_features) / original_features) * 100)
             st.write(f"- **Feature Engineering**: {original_features} → {feature_count} features (+{expansion_pct}% expansion)")
         else:
@@ -1082,6 +1080,8 @@ def show_model_interpretation(data_loader, visualizer):
                 
                 if feature_count > 0:
                     category_importance[category] = category_total / feature_count
+                else:
+                    category_importance[category] = 0
         
         if category_importance:
             # Create category importance visualization
@@ -1095,9 +1095,11 @@ def show_model_interpretation(data_loader, visualizer):
             
             with col2:
                 st.markdown("##### 📈 Category Rankings")
+                max_importance = max(category_importance.values()) if category_importance.values() else 1.0
                 for i, (category, importance) in enumerate(sorted_categories):
                     st.markdown(f"**{i+1}. {category}**")
-                    st.progress(importance / max(category_importance.values()))
+                    progress_value = importance / max_importance if max_importance > 0 else 0
+                    st.progress(progress_value)
                     st.caption(f"Impact Score: {importance:.3f}")
                     st.markdown("")
     
@@ -1205,7 +1207,7 @@ def show_market_intelligence(data_loader, visualizer):
             total_properties = sum(segments.values())
             
             for segment, count in segments.items():
-                percentage = (count / total_properties) * 100
+                percentage = (count / total_properties) * 100 if total_properties > 0 else 0
                 st.markdown(f"**{segment}**: {count:,} properties ({percentage:.1f}%)")
                 st.progress(percentage / 100)
                 st.markdown("")
@@ -1684,8 +1686,16 @@ def show_system_validation(data_loader):
         """)
 
 def show_quick_prediction_interface(data_loader, visualizer, model, train_data, feature_columns):
-    """Quick prediction interface with key features."""
-    st.markdown("#### 🚀 Quick Prediction - Key Property Features")
+    """Quick prediction interface with real-world user-friendly inputs."""
+    st.markdown("#### 🚀 Quick Prediction - Real-World Property Values")
+    
+    # Use the enhanced prediction interface with real-world transformations
+    from utils.enhanced_prediction_interface import EnhancedPredictionInterface
+    interface = EnhancedPredictionInterface()
+    
+    # Show the user-friendly prediction interface
+    interface.show_user_friendly_prediction_interface(model, train_data)
+    return  # Exit early since the interface handles everything
     
     col1, col2, col3 = st.columns(3)
     
@@ -1737,7 +1747,7 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
                 help=mapper.get_feature_description('TotalBsmtSF')
             )
         
-        # GarageArea only has normalized version, use appropriate step size
+        # Use comprehensive mapper for garage area
         garage_area = st.number_input(
             mapper.get_friendly_feature_name('GarageArea'),
             min_value=float(train_data['GarageArea'].min()),
@@ -1749,10 +1759,6 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
     
     with col2:
         st.markdown("**🏗️ Quality & Condition**")
-        
-        # Use comprehensive feature mappings based on complete pipeline analysis
-        from utils.comprehensive_feature_mappings import ComprehensiveFeatureMappings
-        mapper = ComprehensiveFeatureMappings()
         
         overall_qual_unique = sorted(train_data['OverallQual'].unique())
         overall_qual_options = mapper.get_feature_options('OverallQual', overall_qual_unique)
@@ -1784,16 +1790,15 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
                 index=4
             )
         
-        # Use comprehensive kitchen quality options  
+        # Use user-friendly kitchen quality options with star ratings
         if 'KitchenQual_encoded' in train_data.columns:
-            kitchen_qual_unique = sorted(train_data['KitchenQual_encoded'].unique())
-            kitchen_options = mapper.get_feature_options('KitchenQual_encoded', kitchen_qual_unique)
+            kitchen_options = user_dropdowns.quality_mappings['KitchenQual_encoded']['display_to_value']
             
             selected_kitchen_display = st.selectbox(
-                mapper.get_friendly_feature_name('KitchenQual_encoded'),
+                "🍳 Kitchen Quality",
                 options=list(kitchen_options.keys()),
-                index=mapper.get_default_selection_index('KitchenQual_encoded', kitchen_options),
-                help=mapper.get_feature_description('KitchenQual_encoded')
+                index=0,
+                help="Select the overall quality of your kitchen - appliances, countertops, and fixtures"
             )
             kitchen_qual = kitchen_options[selected_kitchen_display]
         else:
@@ -1811,7 +1816,8 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
             min_value=int(train_data['YearBuilt'].min()),
             max_value=int(train_data['YearBuilt'].max()),
             value=int(train_data['YearBuilt'].median()),
-            step=1
+            step=1,
+            help=mapper.get_feature_description('YearBuilt')
         )
         
         # Use user-friendly neighborhood selection
@@ -1837,7 +1843,8 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
             min_value=0,
             max_value=int(train_data['Fireplaces'].max()),
             value=0,
-            step=1
+            step=1,
+            help=mapper.get_feature_description('Fireplaces')
         )
     
     st.markdown("<br>", unsafe_allow_html=True)
@@ -1945,11 +1952,19 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
             st.error(f"Prediction failed: {str(e)}")
 
 def show_advanced_prediction_interface(data_loader, visualizer, model, train_data, feature_columns):
-    """Advanced prediction interface with all features."""
+    """Advanced prediction interface with all features using real-world values."""
     st.markdown("#### 🔬 Advanced Mode - Complete Feature Control")
     # Get dynamic feature count
     feature_count = data_loader.get_model_performance_metrics().get('feature_count', 0)
-    st.info(f"👨‍💻 **Professional Mode**: Configure all {feature_count} features for maximum prediction accuracy")
+    st.info(f"👨‍💻 **Professional Mode**: Configure all {feature_count} features with real-world values for maximum prediction accuracy")
+    
+    # Use the advanced prediction interface with real-world transformations
+    from utils.advanced_prediction_interface import AdvancedPredictionInterface
+    interface = AdvancedPredictionInterface()
+    
+    # Show the advanced prediction interface
+    interface.show_advanced_prediction_interface(model, train_data)
+    return  # Exit early since the interface handles everything
     
     # Feature categories for organization
     categories = data_loader.get_feature_categories(feature_columns)
@@ -2067,15 +2082,62 @@ def show_advanced_prediction_interface(data_loader, visualizer, model, train_dat
             st.error(f"Advanced prediction failed: {str(e)}")
 
 def show_batch_prediction_interface(data_loader, visualizer, model, train_data, feature_columns):
-    """Batch prediction interface for multiple properties."""
-    st.markdown("#### 📋 Batch Predictions - Multiple Properties")
-    st.info("📁 Upload a CSV file with property features for batch predictions")
+    """Batch prediction interface for multiple properties with real-world values."""
+    st.markdown("#### 📋 Batch Predictions - Real-World Property Values")
+    st.info("📁 Upload a CSV file with real-world property values (sq ft, years, etc.) - no normalized values needed!")
+    
+    # Initialize the transformation system for batch processing
+    from utils.complete_transformations import CompleteHouseTransformations
+    transformer = CompleteHouseTransformations()
+    
+    # Add helpful guidance for CSV format
+    with st.expander("📋 **CSV Format Guide - Real-World Values Expected**"):
+        st.markdown("""
+        Your CSV should contain **real-world property values** such as:
+        
+        **📐 Area Features (square feet):**
+        - `GrLivArea`: 1262, 1710, 1786 (above grade living area)
+        - `LotArea`: 8500, 9600, 11250 (lot size)
+        - `TotalBsmtSF`: 856, 920, 1262 (total basement area)
+        - `1stFlrSF`: 856, 920, 1262 (first floor area)
+        - `2ndFlrSF`: 854, 866, 0 (second floor area, 0 if none)
+        - `GarageArea`: 548, 460, 608 (garage area)
+        - `BsmtFinSF1`: 706, 978, 486 (finished basement area type 1)
+        - `BsmtUnfSF`: 150, 284, 434 (unfinished basement area)
+        
+        **📅 Year Features:**
+        - `YearBuilt`: 1976, 2001, 2003 (actual year built)
+        - `YearRemodAdd`: 1976, 2002, 2003 (year remodeled/added)
+        - `GarageYrBlt`: 1976, 2001, 2003 (garage year built)
+        
+        **🏗️ Quality & Condition (1-10 scale):**
+        - `OverallQual`: 6, 7, 7 (overall material and finish quality)
+        - `OverallCond`: 5, 8, 5 (overall condition rating)
+        
+        **🚗 Count Features:**
+        - `BedroomAbvGr`: 3, 3, 3 (bedrooms above grade)
+        - `FullBath`: 2, 2, 2 (full bathrooms above grade)
+        - `BsmtFullBath`: 0, 1, 1 (full bathrooms in basement)
+        - `BsmtHalfBath`: 0, 1, 0 (half bathrooms in basement)
+        - `HalfBath`: 0, 0, 1 (half bathrooms above grade)
+        - `GarageCars`: 2, 2, 2 (garage car capacity)
+        - `Fireplaces`: 0, 1, 1 (number of fireplaces)
+        - `TotRmsAbvGrd`: 6, 8, 6 (total rooms above grade)
+        
+        **🏠 Additional Features:**
+        - `MasVnrArea`: 0, 196, 162 (masonry veneer area in sq ft)
+        - `WoodDeckSF`: 0, 298, 0 (wood deck area in sq ft)
+        - `OpenPorchSF`: 0, 61, 42 (open porch area in sq ft)
+        
+        ✅ **No normalized values (0.0-1.0) needed!** Use actual property measurements.
+        ✅ **Missing features will use training data averages automatically.**
+        """)
     
     # File upload
     uploaded_file = st.file_uploader(
-        "Choose a CSV file with property data",
+        "Choose a CSV file with real-world property data",
         type=['csv'],
-        help="CSV should contain columns matching the model features"
+        help="CSV should contain real-world values like actual square footage, years, counts, etc."
     )
     
     if uploaded_file is not None:
@@ -2095,6 +2157,8 @@ def show_batch_prediction_interface(data_loader, visualizer, model, train_data, 
                     status_text.text(f"Processing property {i+1}/{len(batch_data)}")
                     
                     try:
+                        # Transform real-world values to model-ready features
+                        # Use data_loader for now to handle the transformation
                         prediction_df = data_loader.prepare_prediction_features(row.to_dict())
                         prediction = model.predict(prediction_df)[0]
                         
@@ -2184,15 +2248,29 @@ def show_batch_prediction_interface(data_loader, visualizer, model, train_data, 
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
     else:
-        # Show sample format
+        # Show sample format with real-world values
         st.markdown("#### 📝 Expected CSV Format")
-        sample_features = feature_columns[:10]  # Show first 10 features as example
-        sample_data = {feature: [train_data[feature].iloc[0]] for feature in sample_features}
+        
+        # Create example with real-world values (based on our test data)
+        sample_data = {
+            'LotArea': [8500],
+            'OverallQual': [7], 
+            'OverallCond': [5],
+            'YearBuilt': [2003],
+            'GrLivArea': [1710],
+            'TotalBsmtSF': [856],
+            '1stFlrSF': [856],
+            'FullBath': [2],
+            'BedroomAbvGr': [3],
+            'GarageArea': [548]
+        }
+        
         sample_df = pd.DataFrame(sample_data)
         st.dataframe(sample_df, use_container_width=True)
+        
         # Get dynamic feature count
         feature_count = data_loader.get_model_performance_metrics().get('feature_count', 0)
-        st.caption(f"💡 Your CSV should contain these feature columns (showing first 10 of {feature_count} total features)")
+        st.caption(f"💡 Example showing 10 key features with real-world values. Missing features from the full {feature_count} will use training data averages.")
 
 if __name__ == "__main__":
     main()

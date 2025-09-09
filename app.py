@@ -1687,6 +1687,10 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
     """Quick prediction interface with key features."""
     st.markdown("#### 🚀 Quick Prediction - Key Property Features")
     
+    # Initialize comprehensive feature mappings at the beginning
+    from utils.comprehensive_feature_mappings import ComprehensiveFeatureMappings
+    mapper = ComprehensiveFeatureMappings()
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -1749,10 +1753,6 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
     
     with col2:
         st.markdown("**🏗️ Quality & Condition**")
-        
-        # Use comprehensive feature mappings based on complete pipeline analysis
-        from utils.comprehensive_feature_mappings import ComprehensiveFeatureMappings
-        mapper = ComprehensiveFeatureMappings()
         
         overall_qual_unique = sorted(train_data['OverallQual'].unique())
         overall_qual_options = mapper.get_feature_options('OverallQual', overall_qual_unique)
