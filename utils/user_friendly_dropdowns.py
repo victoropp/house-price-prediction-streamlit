@@ -14,7 +14,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '⭐⭐⭐⭐⭐ Excellent - Premium appliances & finishes': 5.0,
                     '⭐⭐⭐⭐ Good - Quality appliances & materials': 4.0, 
-                    '⭐⭐⭐ Typical/Average - Standard kitchen setup': 3.0,
+                    '⭐⭐⭐ Average - Standard kitchen setup': 3.0,
                     '⭐⭐ Fair - Basic kitchen, needs updating': 2.0
                 }
             },
@@ -22,7 +22,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '⭐⭐⭐⭐⭐ Excellent - Premium exterior materials (stone/brick)': 5,
                     '⭐⭐⭐⭐ Good - Quality materials (wood shingles, etc.)': 4,
-                    '⭐⭐⭐ Typical/Average - Standard exterior materials': 3,
+                    '⭐⭐⭐ Average - Standard exterior materials': 3,
                     '⭐⭐ Fair - Below average materials': 2
                 }
             },
@@ -30,7 +30,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '⭐⭐⭐⭐⭐ Excellent - Like new condition': 5,
                     '⭐⭐⭐⭐ Good - Well maintained': 4,
-                    '⭐⭐⭐ Typical/Average - Normal wear & tear': 3,
+                    '⭐⭐⭐ Average - Normal wear & tear': 3,
                     '⭐⭐ Fair - Some maintenance needed': 2,
                     '⭐ Poor - Major maintenance required': 1
                 }
@@ -39,7 +39,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '🔥 Excellent - Premium heating system': 5,
                     '🔥 Good - Reliable heating system': 4,
-                    '🔥 Typical/Average - Standard heating': 3,
+                    '🔥 Average - Standard heating': 3,
                     '🔥 Fair - Basic heating system': 2,
                     '🔥 Poor - Inadequate heating': 1
                 }
@@ -48,7 +48,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '⭐⭐⭐⭐⭐ Excellent - 100+ inches ceiling height': 5.0,
                     '⭐⭐⭐⭐ Good - 90-99 inches ceiling height': 4.0,
-                    '⭐⭐⭐ Typical/Average - 80-89 inches ceiling height': 3.0,
+                    '⭐⭐⭐ Average - 80-89 inches ceiling height': 3.0,
                     '⭐⭐ Fair - 70-79 inches ceiling height': 2.0
                 }
             },
@@ -56,7 +56,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '⭐⭐⭐⭐⭐ Excellent - No issues': 5.0,
                     '⭐⭐⭐⭐ Good - Minor issues': 4.0,
-                    '⭐⭐⭐ Typical/Average - Some dampness/cracking': 3.0,
+                    '⭐⭐⭐ Average - Some dampness/cracking': 3.0,
                     '⭐⭐ Fair - Moderate dampness/cracking': 2.0,
                     '⭐ Poor - Severe issues, needs repair': 1.0
                 }
@@ -65,7 +65,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '⭐⭐⭐⭐⭐ Excellent - Premium garage quality': 5.0,
                     '⭐⭐⭐⭐ Good - Above average garage': 4.0,
-                    '⭐⭐⭐ Typical/Average - Standard garage': 3.0,
+                    '⭐⭐⭐ Average - Standard garage': 3.0,
                     '⭐⭐ Fair - Below average garage': 2.0,
                     '⭐ Poor - Poor quality garage': 1.0
                 }
@@ -74,7 +74,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '⭐⭐⭐⭐⭐ Excellent - Like new condition': 5.0,
                     '⭐⭐⭐⭐ Good - Well maintained': 4.0,
-                    '⭐⭐⭐ Typical/Average - Normal wear & tear': 3.0,
+                    '⭐⭐⭐ Average - Normal wear & tear': 3.0,
                     '⭐⭐ Fair - Minor repairs needed': 2.0,
                     '⭐ Poor - Major repairs needed': 1.0
                 }
@@ -83,7 +83,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '🔥 Excellent - Superior masonry fireplace': 5.0,
                     '🔥 Good - Masonry fireplace in main level': 4.0,
-                    '🔥 Typical/Average - Prefabricated fireplace': 3.0,
+                    '🔥 Average - Prefabricated fireplace': 3.0,
                     '🔥 Fair - Fireplace in basement': 2.0,
                     '🔥 Poor - Ben Franklin stove': 1.0
                 }
@@ -92,7 +92,7 @@ class UserFriendlyDropdowns:
                 'display_to_value': {
                     '🏊‍♂️ Excellent - Premium pool': 4.0,
                     '🏊‍♂️ Good - Above average pool': 3.0,
-                    '🏊‍♂️ Typical/Average - Standard pool': 2.0,
+                    '🏊‍♂️ Average - Standard pool': 2.0,
                     '🏊‍♂️ Fair - Below average pool': 1.0
                 }
             }
@@ -232,9 +232,9 @@ class UserFriendlyDropdowns:
                     return i
         
         if '_encoded' in feature_name and any(qual in feature_name for qual in ['Qual', 'Cond']):
-            # Default to "Good" (4) or "Typical" (3) for quality features
+            # Default to "Good" (4) or "Average" (3) for quality features
             for i, (display_name, value) in enumerate(options_dict.items()):
-                if 'Good' in display_name or 'Typical' in display_name:
+                if 'Good' in display_name or 'Average' in display_name:
                     return i
         
         if feature_name == 'Neighborhood_encoded':
