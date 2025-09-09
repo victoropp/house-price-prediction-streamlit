@@ -6,8 +6,7 @@ Author: Victor Collins Oppon, FCCA, MBA, BSc.
         Data Scientist and AI Consultant
         Videbimus AI
         www.videbimusai.com
-Version: 1.0.2 - Self-contained deployment with local data files
-Build: 2024-09-08-FINAL
+Version: 1.0.0
 """
 
 import streamlit as st
@@ -23,9 +22,9 @@ sys.path.append(str(current_dir))
 
 # Import our custom modules
 from config.app_config import config
-from utils.feature_explainer import FeatureExplainer
 from utils.data_loader import get_data_loader
 from utils.visualization_utils import get_visualizer
+from utils.feature_explainer import FeatureExplainer
 
 def main():
     """Main application entry point."""
@@ -48,6 +47,13 @@ def main():
             st.write(f"{status_icon} {component.replace('_', ' ').title()}")
         st.stop()
     
+    # Main Application Header
+    st.markdown(f"""
+        <div class='main-header'>
+            <h1>{config.APP_NAME}</h1>
+            <p>{config.APP_DESCRIPTION}</p>
+        </div>
+    """, unsafe_allow_html=True)
     
     # Initialize session state for navigation
     if 'current_page' not in st.session_state:
@@ -109,16 +115,6 @@ def main():
     </div>
     """, unsafe_allow_html=True)
     
-    # Show simple header on non-Welcome pages for context
-    # This is placed after navigation processing to ensure session state is up-to-date
-    if st.session_state.current_page != "Welcome":
-        st.markdown(f"""
-            <div class='main-header'>
-                <h1>{config.APP_NAME}</h1>
-                <p>{config.APP_DESCRIPTION}</p>
-            </div>
-        """, unsafe_allow_html=True)
-    
     page = st.session_state.current_page
     
     # Route to appropriate page with error handling
@@ -168,17 +164,16 @@ def show_welcome_page(data_loader, visualizer):
             
         st.markdown("""
         <div style='background: linear-gradient(135deg, #2E8B5720, #4682B420); 
-                    padding: 1.5rem; border-radius: 15px; min-height: 320px;
-                    border-left: 5px solid #2E8B57; overflow: hidden;
-                    box-sizing: border-box; display: flex; flex-direction: column;'>
-            <h3 style='color: #2E8B57; margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem;'>For Property Professionals</h3>
-            <ul style='margin: 0; padding-left: 1.2rem; flex-grow: 1; line-height: 1.4;'>
-                <li style='margin-bottom: 0.8rem;'><strong>Institutional-Grade Valuations</strong><br/><span style='font-size: 0.9rem; color: #666;'>Same techniques used by leading investment firms</span></li>
-                <li style='margin-bottom: 0.8rem;'><strong>Market Intelligence</strong><br/><span style='font-size: 0.9rem; color: #666;'>Investment opportunities and value drivers</span></li>
-                <li style='margin-bottom: 0.8rem;'><strong>Professional Reports</strong><br/><span style='font-size: 0.9rem; color: #666;'>Executive dashboards and strategic insights</span></li>
-                <li style='margin-bottom: 0.8rem;'><strong>Easy-to-Use Interface</strong><br/><span style='font-size: 0.9rem; color: #666;'>No technical expertise required</span></li>
+                    padding: 2rem; border-radius: 15px; height: 300px;
+                    border-left: 5px solid #2E8B57;'>
+            <h3 style='color: #2E8B57;'>For Property Professionals</h3>
+            <ul>
+                <li><strong>Institutional-Grade Valuations</strong><br/>Same techniques used by leading investment firms</li>
+                <li><strong>Market Intelligence</strong><br/>Investment opportunities and value drivers</li>
+                <li><strong>Professional Reports</strong><br/>Executive dashboards and strategic insights</li>
+                <li><strong>Easy-to-Use Interface</strong><br/>No technical expertise required</li>
             </ul>
-            <p style='margin-top: auto; margin-bottom: 0; padding-top: 1rem; font-weight: bold; font-size: 0.9rem; color: #2E8B57;'>Perfect for: Appraisers, Agents, Investors, Developers</p>
+            <p><strong>Perfect for:</strong> Appraisers, Agents, Investors, Developers</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -189,17 +184,16 @@ def show_welcome_page(data_loader, visualizer):
             
         st.markdown("""
         <div style='background: linear-gradient(135deg, #4682B420, #FF634720); 
-                    padding: 1.5rem; border-radius: 15px; min-height: 320px;
-                    border-left: 5px solid #4682B4; overflow: hidden;
-                    box-sizing: border-box; display: flex; flex-direction: column;'>
-            <h3 style='color: #4682B4; margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem;'>For Technical Professionals</h3>
-            <ul style='margin: 0; padding-left: 1.2rem; flex-grow: 1; line-height: 1.4;'>
-                <li style='margin-bottom: 0.8rem;'><strong>Production ML Pipeline</strong><br/><span style='font-size: 0.9rem; color: #666;'>Complete 9-phase methodology with audit trails</span></li>
-                <li style='margin-bottom: 0.8rem;'><strong>Model Interpretability</strong><br/><span style='font-size: 0.9rem; color: #666;'>SHAP analysis and feature importance</span></li>
-                <li style='margin-bottom: 0.8rem;'><strong>Performance Metrics</strong><br/><span style='font-size: 0.9rem; color: #666;'>Cross-validated R² = 0.904, comprehensive evaluation</span></li>
-                <li style='margin-bottom: 0.8rem;'><strong>Technical Documentation</strong><br/><span style='font-size: 0.9rem; color: #666;'>Architecture, algorithms, and validation</span></li>
+                    padding: 2rem; border-radius: 15px; height: 300px;
+                    border-left: 5px solid #4682B4;'>
+            <h3 style='color: #4682B4;'>For Technical Professionals</h3>
+            <ul>
+                <li><strong>Production ML Pipeline</strong><br/>Complete 9-phase methodology with audit trails</li>
+                <li><strong>Model Interpretability</strong><br/>SHAP analysis and feature importance</li>
+                <li><strong>Performance Metrics</strong><br/>Cross-validated R² = 0.904, comprehensive evaluation</li>
+                <li><strong>Technical Documentation</strong><br/>Architecture, algorithms, and validation</li>
             </ul>
-            <p style='margin-top: auto; margin-bottom: 0; padding-top: 1rem; font-weight: bold; font-size: 0.9rem; color: #4682B4;'>Perfect for: ML Engineers, Data Scientists, Researchers</p>
+            <p><strong>Perfect for:</strong> ML Engineers, Data Scientists, Researchers</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -209,7 +203,7 @@ def show_welcome_page(data_loader, visualizer):
     # Load dynamic metrics
     model_metrics = data_loader.get_model_performance_metrics()
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         accuracy = model_metrics.get('r2_score', 0.904)
@@ -233,6 +227,14 @@ def show_welcome_page(data_loader, visualizer):
             "Prediction Error (RMSE)", 
             f"{rmse:.4f}",
             delta="Cross-Validated"
+        )
+    
+    with col4:
+        training_time = model_metrics.get('execution_time_minutes', 24)
+        st.metric(
+            "Training Time", 
+            f"{training_time:.1f}min",
+            delta="Full Pipeline"
         )
     
     # Feature Highlights
@@ -516,7 +518,7 @@ def show_executive_dashboard(data_loader, visualizer):
         # Calculate feature engineering expansion
         original_features = 81  # Known from dataset
         feature_count = model_metrics.get('feature_count', 0)
-        if feature_count > 0 and original_features > 0:
+        if feature_count > 0:
             expansion_pct = round(((feature_count - original_features) / original_features) * 100)
             st.write(f"- **Feature Engineering**: {original_features} → {feature_count} features (+{expansion_pct}% expansion)")
         else:
@@ -1080,8 +1082,6 @@ def show_model_interpretation(data_loader, visualizer):
                 
                 if feature_count > 0:
                     category_importance[category] = category_total / feature_count
-                else:
-                    category_importance[category] = 0
         
         if category_importance:
             # Create category importance visualization
@@ -1095,11 +1095,9 @@ def show_model_interpretation(data_loader, visualizer):
             
             with col2:
                 st.markdown("##### 📈 Category Rankings")
-                max_importance = max(category_importance.values()) if category_importance.values() else 1.0
                 for i, (category, importance) in enumerate(sorted_categories):
                     st.markdown(f"**{i+1}. {category}**")
-                    progress_value = importance / max_importance if max_importance > 0 else 0
-                    st.progress(progress_value)
+                    st.progress(importance / max(category_importance.values()))
                     st.caption(f"Impact Score: {importance:.3f}")
                     st.markdown("")
     
@@ -1207,7 +1205,7 @@ def show_market_intelligence(data_loader, visualizer):
             total_properties = sum(segments.values())
             
             for segment, count in segments.items():
-                percentage = (count / total_properties) * 100 if total_properties > 0 else 0
+                percentage = (count / total_properties) * 100
                 st.markdown(f"**{segment}**: {count:,} properties ({percentage:.1f}%)")
                 st.progress(percentage / 100)
                 st.markdown("")
@@ -1689,10 +1687,6 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
     """Quick prediction interface with key features."""
     st.markdown("#### 🚀 Quick Prediction - Key Property Features")
     
-    # Initialize comprehensive feature mapper at the very beginning
-    from utils.comprehensive_feature_mappings import ComprehensiveFeatureMappings
-    mapper = ComprehensiveFeatureMappings()
-    
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -1743,7 +1737,7 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
                 help=mapper.get_feature_description('TotalBsmtSF')
             )
         
-        # Use comprehensive mapper for garage area
+        # GarageArea only has normalized version, use appropriate step size
         garage_area = st.number_input(
             mapper.get_friendly_feature_name('GarageArea'),
             min_value=float(train_data['GarageArea'].min()),
@@ -1755,6 +1749,10 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
     
     with col2:
         st.markdown("**🏗️ Quality & Condition**")
+        
+        # Use comprehensive feature mappings based on complete pipeline analysis
+        from utils.comprehensive_feature_mappings import ComprehensiveFeatureMappings
+        mapper = ComprehensiveFeatureMappings()
         
         overall_qual_unique = sorted(train_data['OverallQual'].unique())
         overall_qual_options = mapper.get_feature_options('OverallQual', overall_qual_unique)
@@ -1813,8 +1811,7 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
             min_value=int(train_data['YearBuilt'].min()),
             max_value=int(train_data['YearBuilt'].max()),
             value=int(train_data['YearBuilt'].median()),
-            step=1,
-            help=mapper.get_feature_description('YearBuilt')
+            step=1
         )
         
         # Use user-friendly neighborhood selection
@@ -1840,8 +1837,7 @@ def show_quick_prediction_interface(data_loader, visualizer, model, train_data, 
             min_value=0,
             max_value=int(train_data['Fireplaces'].max()),
             value=0,
-            step=1,
-            help=mapper.get_feature_description('Fireplaces')
+            step=1
         )
     
     st.markdown("<br>", unsafe_allow_html=True)
