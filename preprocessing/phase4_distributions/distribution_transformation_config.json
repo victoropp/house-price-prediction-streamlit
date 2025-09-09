@@ -1,0 +1,399 @@
+{
+    "skewness_analysis": {
+        "total_features": 54,
+        "features_to_transform": [
+            "MiscVal",
+            "PoolArea",
+            "LotArea",
+            "LowQualFinSF",
+            "3SsnPorch",
+            "KitchenAbvGr",
+            "BsmtFinSF2",
+            "EnclosedPorch",
+            "ScreenPorch",
+            "GarageYrBlt",
+            "BsmtHalfBath",
+            "GarageQualityScore",
+            "LivingAreaRatio",
+            "MasVnrArea",
+            "OpenPorchSF",
+            "LotCoverageRatio",
+            "TotalPorchSF",
+            "BathBedroomRatio",
+            "WoodDeckSF",
+            "TotalSF",
+            "1stFlrSF",
+            "BsmtFinSF1",
+            "MSSubClass",
+            "LotFrontage",
+            "GrLivArea",
+            "TotalBsmtSF",
+            "AgeQualityInteraction"
+        ],
+        "priority_distribution": {
+            "High": 17,
+            "None": 17,
+            "Medium": 10,
+            "Low": 10
+        },
+        "skewness_summary": {
+            "count": 54.0,
+            "mean": 2.2732085905211523,
+            "std": 4.551475324984626,
+            "min": -3.9338156638962456,
+            "25%": 0.20812695123121372,
+            "50%": 0.8100208274717324,
+            "75%": 2.4146520359197625,
+            "max": 21.9471948077491
+        }
+    },
+    "transformation_results": {
+        "MiscVal": {
+            "original_skewness": 21.9471948077491,
+            "optimal_method": "log1p",
+            "optimal_skewness": 5.213983641404962,
+            "skewness_improvement": 16.733211166344137,
+            "normality_improvement": 0.0,
+            "parameters": null
+        },
+        "PoolArea": {
+            "original_skewness": 16.89832791614449,
+            "optimal_method": "log1p",
+            "optimal_skewness": 14.99833472413935,
+            "skewness_improvement": 1.8999931920051392,
+            "normality_improvement": 0.0,
+            "parameters": null
+        },
+        "LotArea": {
+            "original_skewness": 12.822431401556724,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": 0.1033529051385301,
+            "skewness_improvement": 12.719078496418193,
+            "normality_improvement": 0.0,
+            "parameters": {
+                "lambda": 0.12994361440003238
+            }
+        },
+        "LowQualFinSF": {
+            "original_skewness": 12.088761003370664,
+            "optimal_method": "log1p",
+            "optimal_skewness": 8.55769041866321,
+            "skewness_improvement": 3.5310705847074537,
+            "normality_improvement": 0.0,
+            "parameters": null
+        },
+        "3SsnPorch": {
+            "original_skewness": 11.376064682827481,
+            "optimal_method": "log1p",
+            "optimal_skewness": 8.825255765053772,
+            "skewness_improvement": 2.5508089177737094,
+            "normality_improvement": 0.0,
+            "parameters": null
+        },
+        "KitchenAbvGr": {
+            "original_skewness": 4.302254369609591,
+            "optimal_method": "sqrt",
+            "optimal_skewness": 2.374734127530312,
+            "skewness_improvement": 1.9275202420792792,
+            "normality_improvement": 0.0,
+            "parameters": null
+        },
+        "BsmtFinSF2": {
+            "original_skewness": 4.146143269564016,
+            "optimal_method": "power_transformer",
+            "optimal_skewness": 2.3552714513994335,
+            "skewness_improvement": 1.7908718181645824,
+            "normality_improvement": 0.0,
+            "parameters": {
+                "lambdas": [
+                    -1.462371354963347
+                ]
+            }
+        },
+        "EnclosedPorch": {
+            "original_skewness": 4.003891220540856,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": 1.8831521577260064,
+            "skewness_improvement": 2.1207390628148497,
+            "normality_improvement": 0.0,
+            "parameters": {
+                "lambda": -1.2999098045418307
+            }
+        },
+        "ScreenPorch": {
+            "original_skewness": 3.9466937029936977,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": 2.9152145631278414,
+            "skewness_improvement": 1.0314791398658563,
+            "normality_improvement": 0.0,
+            "parameters": {
+                "lambda": -2.215858306216719
+            }
+        },
+        "GarageYrBlt": {
+            "original_skewness": -3.9338156638962456,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": -3.839392318193834,
+            "skewness_improvement": 0.09442334570241151,
+            "normality_improvement": 0.0,
+            "parameters": {
+                "lambda": 2.4029209896189
+            }
+        },
+        "BsmtHalfBath": {
+            "original_skewness": 3.9299959692889814,
+            "optimal_method": "sqrt",
+            "optimal_skewness": 3.7373774340955963,
+            "skewness_improvement": 0.19261853519338512,
+            "normality_improvement": 0.0,
+            "parameters": null
+        },
+        "GarageQualityScore": {
+            "original_skewness": -3.4404388179829044,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": 1.4102644679325087,
+            "skewness_improvement": 2.0301743500503955,
+            "normality_improvement": 0.0,
+            "parameters": {
+                "lambda": 4.236452869647833
+            }
+        },
+        "LivingAreaRatio": {
+            "original_skewness": 2.8246624938179594,
+            "optimal_method": "boxcox",
+            "optimal_skewness": -0.05706343439057893,
+            "skewness_improvement": 2.7675990594273805,
+            "normality_improvement": 3.4746795755167626e-252,
+            "parameters": {
+                "lambda": -0.12478333434630819
+            }
+        },
+        "MasVnrArea": {
+            "original_skewness": 2.6247237725894235,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": 0.4646088075587413,
+            "skewness_improvement": 2.160114965030682,
+            "normality_improvement": 2.4039406789358445e-104,
+            "parameters": {
+                "lambda": -0.26605257363295937
+            }
+        },
+        "OpenPorchSF": {
+            "original_skewness": 2.5351137294802557,
+            "optimal_method": "power_transformer",
+            "optimal_skewness": -0.02606104701431652,
+            "skewness_improvement": 2.5090526824659394,
+            "normality_improvement": 7.903838012725847e-82,
+            "parameters": {
+                "lambdas": [
+                    0.02065090005241795
+                ]
+            }
+        },
+        "LotCoverageRatio": {
+            "original_skewness": 2.4737806334985284,
+            "optimal_method": "boxcox",
+            "optimal_skewness": -0.02644106179593961,
+            "skewness_improvement": 2.4473395717025888,
+            "normality_improvement": 1.5551034975713564e-204,
+            "parameters": {
+                "lambda": -0.062011594777846527
+            }
+        },
+        "TotalPorchSF": {
+            "original_skewness": 2.2372662431834645,
+            "optimal_method": "power_transformer",
+            "optimal_skewness": -0.22658708731690566,
+            "skewness_improvement": 2.010679155866559,
+            "normality_improvement": 2.42100335532984e-46,
+            "parameters": {
+                "lambdas": [
+                    0.21495136087289088
+                ]
+            }
+        },
+        "BathBedroomRatio": {
+            "original_skewness": 1.889307754036716,
+            "optimal_method": "boxcox",
+            "optimal_skewness": -0.00031587627889516427,
+            "skewness_improvement": 1.888991877757821,
+            "normality_improvement": 0.9996957270024921,
+            "parameters": {
+                "lambda": -0.12257313486007866
+            }
+        },
+        "WoodDeckSF": {
+            "original_skewness": 1.8424328111184782,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": 0.1357875143160624,
+            "skewness_improvement": 1.706645296802416,
+            "normality_improvement": 1.443416204019099e-100,
+            "parameters": {
+                "lambda": -0.08090920098258099
+            }
+        },
+        "TotalSF": {
+            "original_skewness": 1.5114787493612882,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": 0.03571954774460201,
+            "skewness_improvement": 1.4757592016166863,
+            "normality_improvement": 1.0537052075625095e-53,
+            "parameters": {
+                "lambda": 0.2526990910172631
+            }
+        },
+        "1stFlrSF": {
+            "original_skewness": 1.4696044169256821,
+            "optimal_method": "power_transformer",
+            "optimal_skewness": -0.000910989780335244,
+            "skewness_improvement": 1.468693427145347,
+            "normality_improvement": 0.36064989131848907,
+            "parameters": {
+                "lambdas": [
+                    -0.06342475144972666
+                ]
+            }
+        },
+        "BsmtFinSF1": {
+            "original_skewness": 1.4252301840932442,
+            "optimal_method": "sqrt",
+            "optimal_skewness": -0.011420771193091797,
+            "skewness_improvement": 1.4138094129001524,
+            "normality_improvement": 1.483982159942471e-39,
+            "parameters": null
+        },
+        "MSSubClass": {
+            "original_skewness": 1.3754573602849356,
+            "optimal_method": "boxcox",
+            "optimal_skewness": 0.06647321823146646,
+            "skewness_improvement": 1.3089841420534691,
+            "normality_improvement": 2.3415401380315206e-50,
+            "parameters": {
+                "lambda": -0.21055231805807934
+            }
+        },
+        "LotFrontage": {
+            "original_skewness": 1.3192277095599931,
+            "optimal_method": "sqrt",
+            "optimal_skewness": -0.003825875296888878,
+            "skewness_improvement": 1.3154018342631042,
+            "normality_improvement": 4.504965905857164e-174,
+            "parameters": null
+        },
+        "GrLivArea": {
+            "original_skewness": 1.269357688230336,
+            "optimal_method": "power_transformer",
+            "optimal_skewness": -0.0002832048115324858,
+            "skewness_improvement": 1.2690744834188035,
+            "normality_improvement": 0.07014428190165217,
+            "parameters": {
+                "lambdas": [
+                    -0.01252011804400047
+                ]
+            }
+        },
+        "TotalBsmtSF": {
+            "original_skewness": 1.1568941366699765,
+            "optimal_method": "power_transformer",
+            "optimal_skewness": 0.1130470276248234,
+            "skewness_improvement": 1.043847109045153,
+            "normality_improvement": 0.0,
+            "parameters": {
+                "lambdas": [
+                    0.7536238235593955
+                ]
+            }
+        },
+        "AgeQualityInteraction": {
+            "original_skewness": 1.0025119475055184,
+            "optimal_method": "yeojohnson",
+            "optimal_skewness": -0.0017454479790303683,
+            "skewness_improvement": 1.000766499526488,
+            "normality_improvement": 1.622041035332823e-30,
+            "parameters": {
+                "lambda": 0.008615834323741089
+            }
+        }
+    },
+    "validation_results": {
+        "total_features_analyzed": 27,
+        "features_successfully_transformed": 27,
+        "average_skewness_improvement": 2.6818054655608146,
+        "transformation_methods_used": {
+            "log1p": 4,
+            "yeojohnson": 9,
+            "sqrt": 4,
+            "power_transformer": 6,
+            "boxcox": 4
+        },
+        "quality_issues": [
+            "LotArea: Too concentrated after transformation",
+            "EnclosedPorch: Too concentrated after transformation",
+            "ScreenPorch: Too concentrated after transformation",
+            "GarageYrBlt: Too concentrated after transformation",
+            "GarageQualityScore: Too concentrated after transformation",
+            "MasVnrArea: Too concentrated after transformation",
+            "WoodDeckSF: Too concentrated after transformation",
+            "TotalSF: Too concentrated after transformation",
+            "AgeQualityInteraction: Too concentrated after transformation"
+        ]
+    },
+    "features_to_transform": [
+        "MiscVal",
+        "PoolArea",
+        "LotArea",
+        "LowQualFinSF",
+        "3SsnPorch",
+        "KitchenAbvGr",
+        "BsmtFinSF2",
+        "EnclosedPorch",
+        "ScreenPorch",
+        "GarageYrBlt",
+        "BsmtHalfBath",
+        "GarageQualityScore",
+        "LivingAreaRatio",
+        "MasVnrArea",
+        "OpenPorchSF",
+        "LotCoverageRatio",
+        "TotalPorchSF",
+        "BathBedroomRatio",
+        "WoodDeckSF",
+        "TotalSF",
+        "1stFlrSF",
+        "BsmtFinSF1",
+        "MSSubClass",
+        "LotFrontage",
+        "GrLivArea",
+        "TotalBsmtSF",
+        "AgeQualityInteraction"
+    ],
+    "transformed_features": [
+        "MiscVal_transformed",
+        "PoolArea_transformed",
+        "LotArea_transformed",
+        "LowQualFinSF_transformed",
+        "3SsnPorch_transformed",
+        "KitchenAbvGr_transformed",
+        "BsmtFinSF2_transformed",
+        "EnclosedPorch_transformed",
+        "ScreenPorch_transformed",
+        "GarageYrBlt_transformed",
+        "BsmtHalfBath_transformed",
+        "GarageQualityScore_transformed",
+        "LivingAreaRatio_transformed",
+        "MasVnrArea_transformed",
+        "OpenPorchSF_transformed",
+        "LotCoverageRatio_transformed",
+        "TotalPorchSF_transformed",
+        "BathBedroomRatio_transformed",
+        "WoodDeckSF_transformed",
+        "TotalSF_transformed",
+        "1stFlrSF_transformed",
+        "BsmtFinSF1_transformed",
+        "MSSubClass_transformed",
+        "LotFrontage_transformed",
+        "GrLivArea_transformed",
+        "TotalBsmtSF_transformed",
+        "AgeQualityInteraction_transformed"
+    ]
+}

@@ -1,0 +1,9 @@
+Metric,Value
+Total_Features,80
+Features_with_Missing_Values,34
+Highly_Skewed_Features,20
+Features_with_Outliers,30
+Most_Correlated_Feature,OverallQual
+Highest_Correlation,0.7909816005838053
+Neighborhoods,25
+Year_Range,1872-2010

@@ -1,0 +1,6 @@
+Metric,Value
+Training_Samples,1460
+Test_Samples,1459
+Total_Features,80
+Numeric_Features,38
+Categorical_Features,43

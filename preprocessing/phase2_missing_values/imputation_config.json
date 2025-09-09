@@ -1,0 +1,227 @@
+{
+    "strategies_applied": {
+        "high_missing_categorical": {
+            "PoolQC": "None",
+            "MiscFeature": "None",
+            "Alley": "None",
+            "Fence": "None",
+            "FireplaceQu": "None"
+        },
+        "garage_group": {
+            "categorical": [
+                "GarageType",
+                "GarageFinish",
+                "GarageQual",
+                "GarageCond"
+            ],
+            "numerical": [
+                "GarageYrBlt",
+                "GarageArea",
+                "GarageCars"
+            ]
+        },
+        "basement_group": {
+            "categorical": [
+                "BsmtQual",
+                "BsmtCond",
+                "BsmtExposure",
+                "BsmtFinType1",
+                "BsmtFinType2"
+            ],
+            "numerical": [
+                "BsmtFinSF1",
+                "BsmtFinSF2",
+                "BsmtUnfSF",
+                "TotalBsmtSF"
+            ]
+        },
+        "moderate_missing": [
+            "LotFrontage",
+            "MasVnrType",
+            "MasVnrArea",
+            "Electrical"
+        ]
+    },
+    "domain_imputation_log": {
+        "PoolQC": {
+            "strategy": "Domain_Knowledge",
+            "before": 2909,
+            "after": 0,
+            "value": "None"
+        },
+        "MiscFeature": {
+            "strategy": "Domain_Knowledge",
+            "before": 2814,
+            "after": 0,
+            "value": "None"
+        },
+        "Alley": {
+            "strategy": "Domain_Knowledge",
+            "before": 2721,
+            "after": 0,
+            "value": "None"
+        },
+        "Fence": {
+            "strategy": "Domain_Knowledge",
+            "before": 2348,
+            "after": 0,
+            "value": "None"
+        },
+        "FireplaceQu": {
+            "strategy": "Domain_Knowledge",
+            "before": 1420,
+            "after": 0,
+            "value": "None"
+        },
+        "GarageType": {
+            "strategy": "Systematic_None",
+            "before": 157,
+            "after": 0,
+            "value": "None"
+        },
+        "GarageFinish": {
+            "strategy": "Systematic_None",
+            "before": 159,
+            "after": 2,
+            "value": "None"
+        },
+        "GarageQual": {
+            "strategy": "Systematic_None",
+            "before": 159,
+            "after": 2,
+            "value": "None"
+        },
+        "GarageCond": {
+            "strategy": "Systematic_None",
+            "before": 159,
+            "after": 2,
+            "value": "None"
+        },
+        "GarageYrBlt": {
+            "strategy": "Systematic_Zero",
+            "before": 159,
+            "after": 2,
+            "value": 0
+        },
+        "GarageArea": {
+            "strategy": "Systematic_Zero",
+            "before": 1,
+            "after": 1,
+            "value": 0
+        },
+        "GarageCars": {
+            "strategy": "Systematic_Zero",
+            "before": 1,
+            "after": 1,
+            "value": 0
+        },
+        "BsmtQual": {
+            "strategy": "Systematic_None",
+            "before": 81,
+            "after": 2,
+            "value": "None"
+        },
+        "BsmtCond": {
+            "strategy": "Systematic_None",
+            "before": 82,
+            "after": 3,
+            "value": "None"
+        },
+        "BsmtExposure": {
+            "strategy": "Systematic_None",
+            "before": 82,
+            "after": 3,
+            "value": "None"
+        },
+        "BsmtFinType1": {
+            "strategy": "Systematic_None",
+            "before": 79,
+            "after": 0,
+            "value": "None"
+        },
+        "BsmtFinType2": {
+            "strategy": "Systematic_None",
+            "before": 80,
+            "after": 1,
+            "value": "None"
+        },
+        "BsmtFinSF1": {
+            "strategy": "Systematic_Zero",
+            "before": 1,
+            "after": 0,
+            "value": 0
+        },
+        "BsmtFinSF2": {
+            "strategy": "Systematic_Zero",
+            "before": 1,
+            "after": 0,
+            "value": 0
+        },
+        "BsmtUnfSF": {
+            "strategy": "Systematic_Zero",
+            "before": 1,
+            "after": 0,
+            "value": 0
+        },
+        "TotalBsmtSF": {
+            "strategy": "Systematic_Zero",
+            "before": 1,
+            "after": 0,
+            "value": 0
+        }
+    },
+    "advanced_imputation_log": {
+        "LotFrontage": {
+            "strategy": "KNN_Imputation",
+            "before": 486,
+            "after": 0,
+            "parameters": "n_neighbors=5"
+        },
+        "MasVnrType": {
+            "strategy": "Paired_Domain",
+            "before": 1766,
+            "after": 0,
+            "value": "None"
+        },
+        "MasVnrArea": {
+            "strategy": "Paired_Domain",
+            "before": 23,
+            "after": 0,
+            "value": 0
+        },
+        "Electrical": {
+            "strategy": "Mode_Imputation",
+            "before": 1,
+            "after": 0,
+            "value": "SBrkr"
+        }
+    },
+    "validation_results": {
+        "original_missing_total": 15707,
+        "processed_missing_total": 35,
+        "missing_reduction": 15672,
+        "missing_reduction_pct": 99.77716941491055,
+        "features_with_remaining_missing": 19,
+        "indicators_created": 3
+    },
+    "missing_indicators": [
+        {
+            "Original_Feature": "LotFrontage",
+            "Indicator_Feature": "LotFrontage_WasMissing",
+            "Missing_Count": 486,
+            "Missing_Percentage": 16.649537512846866
+        },
+        {
+            "Original_Feature": "MasVnrArea",
+            "Indicator_Feature": "MasVnrArea_WasMissing",
+            "Missing_Count": 23,
+            "Missing_Percentage": 0.7879410757108599
+        },
+        {
+            "Original_Feature": "GarageYrBlt",
+            "Indicator_Feature": "GarageYrBlt_WasMissing",
+            "Missing_Count": 159,
+            "Missing_Percentage": 5.4470709146968135
+        }
+    ]
+}

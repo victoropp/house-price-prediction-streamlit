@@ -1,0 +1,28 @@
+{
+    "optimal_transformation": "boxcox",
+    "boxcox_lambda": -0.07693211157738546,
+    "original_stats": {
+        "mean": 180921.19589041095,
+        "median": 163000.0,
+        "std": 79442.50288288662,
+        "min": 34900,
+        "max": 755000,
+        "skewness": 1.880940746034036,
+        "kurtosis": 6.509812011089439,
+        "range": 720100,
+        "iqr": 84025.0,
+        "jarque_bera_stat": 3438.8721241220583,
+        "jarque_bera_pvalue": 0.0,
+        "shapiro_stat": 0.8696714665902145,
+        "shapiro_pvalue": 3.2061412312021656e-33
+    },
+    "transformed_stats": {
+        "mean": 7.841926728591681,
+        "median": 7.835408901965238,
+        "std": 0.15818656534330475,
+        "skewness": -0.00864479373377502,
+        "kurtosis": 0.8707493336662697,
+        "jarque_bera_pvalue": 9.55718292497011e-11,
+        "shapiro_pvalue": 1.9053191988978063e-07
+    }
+}

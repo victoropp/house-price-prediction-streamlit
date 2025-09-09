@@ -1,0 +1,1065 @@
+{
+    "categorical_analysis": {
+        "total_categorical_features": 49,
+        "strategy_distribution": {
+            "onehot": 22,
+            "ordinal": 16,
+            "label": 7,
+            "target": 4
+        },
+        "features_by_strategy": {
+            "onehot": [
+                "MSZoning",
+                "LotShape",
+                "LandContour",
+                "LotConfig",
+                "LandSlope",
+                "BldgType",
+                "HouseStyle",
+                "RoofStyle",
+                "RoofMatl",
+                "MasVnrType",
+                "Foundation",
+                "BsmtExposure",
+                "Heating",
+                "Electrical",
+                "Functional",
+                "GarageType",
+                "PavedDrive",
+                "Fence",
+                "MiscFeature",
+                "SaleType",
+                "HouseAgeGroup",
+                "NeighborhoodTier"
+            ],
+            "ordinal": [
+                "Condition1",
+                "Condition2",
+                "ExterQual",
+                "ExterCond",
+                "BsmtQual",
+                "BsmtCond",
+                "BsmtFinType1",
+                "BsmtFinType2",
+                "HeatingQC",
+                "KitchenQual",
+                "FireplaceQu",
+                "GarageFinish",
+                "GarageQual",
+                "GarageCond",
+                "PoolQC",
+                "SaleCondition"
+            ],
+            "label": [
+                "Street",
+                "Alley",
+                "Utilities",
+                "CentralAir",
+                "LotFrontage_WasMissing",
+                "MasVnrArea_WasMissing",
+                "GarageYrBlt_WasMissing"
+            ],
+            "target": [
+                "Neighborhood",
+                "Exterior1st",
+                "Exterior2nd",
+                "MSSubClass"
+            ]
+        }
+    },
+    "encoding_strategies": {
+        "onehot": [
+            "MSZoning",
+            "LotShape",
+            "LandContour",
+            "LotConfig",
+            "LandSlope",
+            "BldgType",
+            "HouseStyle",
+            "RoofStyle",
+            "RoofMatl",
+            "MasVnrType",
+            "Foundation",
+            "BsmtExposure",
+            "Heating",
+            "Electrical",
+            "Functional",
+            "GarageType",
+            "PavedDrive",
+            "Fence",
+            "MiscFeature",
+            "SaleType",
+            "HouseAgeGroup",
+            "NeighborhoodTier"
+        ],
+        "ordinal": [
+            "Condition1",
+            "Condition2",
+            "ExterQual",
+            "ExterCond",
+            "BsmtQual",
+            "BsmtCond",
+            "BsmtFinType1",
+            "BsmtFinType2",
+            "HeatingQC",
+            "KitchenQual",
+            "FireplaceQu",
+            "GarageFinish",
+            "GarageQual",
+            "GarageCond",
+            "PoolQC",
+            "SaleCondition"
+        ],
+        "label": [
+            "Street",
+            "Alley",
+            "Utilities",
+            "CentralAir",
+            "LotFrontage_WasMissing",
+            "MasVnrArea_WasMissing",
+            "GarageYrBlt_WasMissing"
+        ],
+        "target": [
+            "Neighborhood",
+            "Exterior1st",
+            "Exterior2nd",
+            "MSSubClass"
+        ]
+    },
+    "encoded_features_info": {
+        "Street": {
+            "original_feature": "Street",
+            "encoded_feature": "Street_encoded",
+            "unique_values": 2,
+            "classes": [
+                "Grvl",
+                "Pave"
+            ],
+            "encoding_type": "label"
+        },
+        "Alley": {
+            "original_feature": "Alley",
+            "encoded_feature": "Alley_encoded",
+            "unique_values": 3,
+            "classes": [
+                "Grvl",
+                "MISSING_VALUE",
+                "Pave"
+            ],
+            "encoding_type": "label"
+        },
+        "Utilities": {
+            "original_feature": "Utilities",
+            "encoded_feature": "Utilities_encoded",
+            "unique_values": 3,
+            "classes": [
+                "AllPub",
+                "MISSING_VALUE",
+                "NoSeWa"
+            ],
+            "encoding_type": "label"
+        },
+        "CentralAir": {
+            "original_feature": "CentralAir",
+            "encoded_feature": "CentralAir_encoded",
+            "unique_values": 2,
+            "classes": [
+                "N",
+                "Y"
+            ],
+            "encoding_type": "label"
+        },
+        "LotFrontage_WasMissing": {
+            "original_feature": "LotFrontage_WasMissing",
+            "encoded_feature": "LotFrontage_WasMissing_encoded",
+            "unique_values": 2,
+            "classes": [
+                0,
+                1
+            ],
+            "encoding_type": "label"
+        },
+        "MasVnrArea_WasMissing": {
+            "original_feature": "MasVnrArea_WasMissing",
+            "encoded_feature": "MasVnrArea_WasMissing_encoded",
+            "unique_values": 2,
+            "classes": [
+                0,
+                1
+            ],
+            "encoding_type": "label"
+        },
+        "GarageYrBlt_WasMissing": {
+            "original_feature": "GarageYrBlt_WasMissing",
+            "encoded_feature": "GarageYrBlt_WasMissing_encoded",
+            "unique_values": 2,
+            "classes": [
+                0,
+                1
+            ],
+            "encoding_type": "label"
+        },
+        "Condition1": {
+            "original_feature": "Condition1",
+            "encoded_feature": "Condition1_encoded",
+            "unique_values": 10,
+            "mapping": {
+                "Artery": 1,
+                "RRAe": 2,
+                "Feedr": 3,
+                "RRAn": 4,
+                "Norm": 5,
+                "RRNe": 6,
+                "RRNn": 7,
+                "PosN": 8,
+                "PosA": 9,
+                "None": 0
+            },
+            "encoding_type": "ordinal"
+        },
+        "Condition2": {
+            "original_feature": "Condition2",
+            "encoded_feature": "Condition2_encoded",
+            "unique_values": 9,
+            "mapping": {
+                "RRNn": 1,
+                "Artery": 2,
+                "Feedr": 3,
+                "RRAn": 4,
+                "Norm": 5,
+                "RRAe": 6,
+                "PosN": 7,
+                "PosA": 8,
+                "None": 0
+            },
+            "encoding_type": "ordinal"
+        },
+        "ExterQual": {
+            "original_feature": "ExterQual",
+            "encoded_feature": "ExterQual_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "ExterCond": {
+            "original_feature": "ExterCond",
+            "encoded_feature": "ExterCond_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "BsmtQual": {
+            "original_feature": "BsmtQual",
+            "encoded_feature": "BsmtQual_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "BsmtCond": {
+            "original_feature": "BsmtCond",
+            "encoded_feature": "BsmtCond_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "BsmtFinType1": {
+            "original_feature": "BsmtFinType1",
+            "encoded_feature": "BsmtFinType1_encoded",
+            "unique_values": 7,
+            "mapping": {
+                "None": 0,
+                "Unf": 1,
+                "LwQ": 2,
+                "Rec": 3,
+                "BLQ": 4,
+                "ALQ": 5,
+                "GLQ": 6
+            },
+            "encoding_type": "ordinal"
+        },
+        "BsmtFinType2": {
+            "original_feature": "BsmtFinType2",
+            "encoded_feature": "BsmtFinType2_encoded",
+            "unique_values": 7,
+            "mapping": {
+                "None": 0,
+                "Unf": 1,
+                "LwQ": 2,
+                "Rec": 3,
+                "BLQ": 4,
+                "ALQ": 5,
+                "GLQ": 6
+            },
+            "encoding_type": "ordinal"
+        },
+        "HeatingQC": {
+            "original_feature": "HeatingQC",
+            "encoded_feature": "HeatingQC_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "KitchenQual": {
+            "original_feature": "KitchenQual",
+            "encoded_feature": "KitchenQual_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "FireplaceQu": {
+            "original_feature": "FireplaceQu",
+            "encoded_feature": "FireplaceQu_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "GarageFinish": {
+            "original_feature": "GarageFinish",
+            "encoded_feature": "GarageFinish_encoded",
+            "unique_values": 7,
+            "mapping": {
+                "None": 0,
+                "Unf": 1,
+                "LwQ": 2,
+                "Rec": 3,
+                "BLQ": 4,
+                "ALQ": 5,
+                "GLQ": 6
+            },
+            "encoding_type": "ordinal"
+        },
+        "GarageQual": {
+            "original_feature": "GarageQual",
+            "encoded_feature": "GarageQual_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "GarageCond": {
+            "original_feature": "GarageCond",
+            "encoded_feature": "GarageCond_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "PoolQC": {
+            "original_feature": "PoolQC",
+            "encoded_feature": "PoolQC_encoded",
+            "unique_values": 11,
+            "mapping": {
+                "Po": 1,
+                "Fa": 2,
+                "TA": 3,
+                "Gd": 4,
+                "Ex": 5,
+                "None": 0,
+                "Poor": 1,
+                "Fair": 2,
+                "Typical": 3,
+                "Good": 4,
+                "Excellent": 5
+            },
+            "encoding_type": "ordinal"
+        },
+        "SaleCondition": {
+            "original_feature": "SaleCondition",
+            "encoded_feature": "SaleCondition_encoded",
+            "unique_values": 7,
+            "mapping": {
+                "AdjLand": 1,
+                "Abnorml": 2,
+                "Family": 3,
+                "Alloca": 4,
+                "Normal": 5,
+                "Partial": 6,
+                "None": 0
+            },
+            "encoding_type": "ordinal"
+        },
+        "Neighborhood": {
+            "original_feature": "Neighborhood",
+            "encoded_feature": "Neighborhood_encoded",
+            "unique_values": 25,
+            "encoding_type": "target",
+            "global_mean": 180921.19589041095,
+            "correlation_with_target": 0.7386304832658638
+        },
+        "Exterior1st": {
+            "original_feature": "Exterior1st",
+            "encoded_feature": "Exterior1st_encoded",
+            "unique_values": 15,
+            "encoding_type": "target",
+            "global_mean": 180921.19589041095,
+            "correlation_with_target": 0.39086202570996004
+        },
+        "Exterior2nd": {
+            "original_feature": "Exterior2nd",
+            "encoded_feature": "Exterior2nd_encoded",
+            "unique_values": 16,
+            "encoding_type": "target",
+            "global_mean": 180921.19589041095,
+            "correlation_with_target": 0.3922114992258935
+        },
+        "MSSubClass": {
+            "original_feature": "MSSubClass",
+            "encoded_feature": "MSSubClass_encoded",
+            "unique_values": 15,
+            "encoding_type": "target",
+            "global_mean": 180921.19589041095,
+            "correlation_with_target": 0.49630229983102736
+        },
+        "MSZoning": {
+            "original_feature": "MSZoning",
+            "encoded_features": [
+                "MSZoning_C (all)",
+                "MSZoning_FV",
+                "MSZoning_RH",
+                "MSZoning_RL",
+                "MSZoning_RM"
+            ],
+            "unique_values": 5,
+            "encoding_type": "onehot",
+            "categories": [
+                "RL",
+                "RM",
+                "C (all)",
+                "FV",
+                "RH"
+            ]
+        },
+        "LotShape": {
+            "original_feature": "LotShape",
+            "encoded_features": [
+                "LotShape_IR1",
+                "LotShape_IR2",
+                "LotShape_IR3",
+                "LotShape_Reg"
+            ],
+            "unique_values": 4,
+            "encoding_type": "onehot",
+            "categories": [
+                "Reg",
+                "IR1",
+                "IR2",
+                "IR3"
+            ]
+        },
+        "LandContour": {
+            "original_feature": "LandContour",
+            "encoded_features": [
+                "LandContour_Bnk",
+                "LandContour_HLS",
+                "LandContour_Low",
+                "LandContour_Lvl"
+            ],
+            "unique_values": 4,
+            "encoding_type": "onehot",
+            "categories": [
+                "Lvl",
+                "Bnk",
+                "Low",
+                "HLS"
+            ]
+        },
+        "LotConfig": {
+            "original_feature": "LotConfig",
+            "encoded_features": [
+                "LotConfig_Corner",
+                "LotConfig_CulDSac",
+                "LotConfig_FR2",
+                "LotConfig_FR3",
+                "LotConfig_Inside"
+            ],
+            "unique_values": 5,
+            "encoding_type": "onehot",
+            "categories": [
+                "Inside",
+                "FR2",
+                "Corner",
+                "CulDSac",
+                "FR3"
+            ]
+        },
+        "LandSlope": {
+            "original_feature": "LandSlope",
+            "encoded_features": [
+                "LandSlope_Gtl",
+                "LandSlope_Mod",
+                "LandSlope_Sev"
+            ],
+            "unique_values": 3,
+            "encoding_type": "onehot",
+            "categories": [
+                "Gtl",
+                "Mod",
+                "Sev"
+            ]
+        },
+        "BldgType": {
+            "original_feature": "BldgType",
+            "encoded_features": [
+                "BldgType_1Fam",
+                "BldgType_2fmCon",
+                "BldgType_Duplex",
+                "BldgType_Twnhs",
+                "BldgType_TwnhsE"
+            ],
+            "unique_values": 5,
+            "encoding_type": "onehot",
+            "categories": [
+                "1Fam",
+                "2fmCon",
+                "Duplex",
+                "TwnhsE",
+                "Twnhs"
+            ]
+        },
+        "HouseStyle": {
+            "original_feature": "HouseStyle",
+            "encoded_features": [
+                "HouseStyle_1.5Fin",
+                "HouseStyle_1.5Unf",
+                "HouseStyle_1Story",
+                "HouseStyle_2.5Fin",
+                "HouseStyle_2.5Unf",
+                "HouseStyle_2Story",
+                "HouseStyle_SFoyer",
+                "HouseStyle_SLvl"
+            ],
+            "unique_values": 8,
+            "encoding_type": "onehot",
+            "categories": [
+                "2Story",
+                "1Story",
+                "1.5Fin",
+                "1.5Unf",
+                "SFoyer",
+                "SLvl",
+                "2.5Unf",
+                "2.5Fin"
+            ]
+        },
+        "RoofStyle": {
+            "original_feature": "RoofStyle",
+            "encoded_features": [
+                "RoofStyle_Flat",
+                "RoofStyle_Gable",
+                "RoofStyle_Gambrel",
+                "RoofStyle_Hip",
+                "RoofStyle_Mansard",
+                "RoofStyle_Shed"
+            ],
+            "unique_values": 6,
+            "encoding_type": "onehot",
+            "categories": [
+                "Gable",
+                "Hip",
+                "Gambrel",
+                "Mansard",
+                "Flat",
+                "Shed"
+            ]
+        },
+        "RoofMatl": {
+            "original_feature": "RoofMatl",
+            "encoded_features": [
+                "RoofMatl_ClyTile",
+                "RoofMatl_CompShg",
+                "RoofMatl_Membran",
+                "RoofMatl_Metal",
+                "RoofMatl_Roll",
+                "RoofMatl_Tar&Grv",
+                "RoofMatl_WdShake",
+                "RoofMatl_WdShngl"
+            ],
+            "unique_values": 8,
+            "encoding_type": "onehot",
+            "categories": [
+                "CompShg",
+                "WdShngl",
+                "Metal",
+                "WdShake",
+                "Membran",
+                "Tar&Grv",
+                "Roll",
+                "ClyTile"
+            ]
+        },
+        "MasVnrType": {
+            "original_feature": "MasVnrType",
+            "encoded_features": [
+                "MasVnrType_BrkCmn",
+                "MasVnrType_BrkFace",
+                "MasVnrType_Stone"
+            ],
+            "unique_values": 3,
+            "encoding_type": "onehot",
+            "categories": [
+                "BrkFace",
+                "Stone",
+                "BrkCmn"
+            ]
+        },
+        "Foundation": {
+            "original_feature": "Foundation",
+            "encoded_features": [
+                "Foundation_BrkTil",
+                "Foundation_CBlock",
+                "Foundation_PConc",
+                "Foundation_Slab",
+                "Foundation_Stone",
+                "Foundation_Wood"
+            ],
+            "unique_values": 6,
+            "encoding_type": "onehot",
+            "categories": [
+                "PConc",
+                "CBlock",
+                "BrkTil",
+                "Wood",
+                "Slab",
+                "Stone"
+            ]
+        },
+        "BsmtExposure": {
+            "original_feature": "BsmtExposure",
+            "encoded_features": [
+                "BsmtExposure_Av",
+                "BsmtExposure_Gd",
+                "BsmtExposure_Mn",
+                "BsmtExposure_No"
+            ],
+            "unique_values": 4,
+            "encoding_type": "onehot",
+            "categories": [
+                "No",
+                "Gd",
+                "Mn",
+                "Av"
+            ]
+        },
+        "Heating": {
+            "original_feature": "Heating",
+            "encoded_features": [
+                "Heating_Floor",
+                "Heating_GasA",
+                "Heating_GasW",
+                "Heating_Grav",
+                "Heating_OthW",
+                "Heating_Wall"
+            ],
+            "unique_values": 6,
+            "encoding_type": "onehot",
+            "categories": [
+                "GasA",
+                "GasW",
+                "Grav",
+                "Wall",
+                "OthW",
+                "Floor"
+            ]
+        },
+        "Electrical": {
+            "original_feature": "Electrical",
+            "encoded_features": [
+                "Electrical_FuseA",
+                "Electrical_FuseF",
+                "Electrical_FuseP",
+                "Electrical_Mix",
+                "Electrical_SBrkr"
+            ],
+            "unique_values": 5,
+            "encoding_type": "onehot",
+            "categories": [
+                "SBrkr",
+                "FuseF",
+                "FuseA",
+                "FuseP",
+                "Mix"
+            ]
+        },
+        "Functional": {
+            "original_feature": "Functional",
+            "encoded_features": [
+                "Functional_Maj1",
+                "Functional_Maj2",
+                "Functional_Min1",
+                "Functional_Min2",
+                "Functional_Mod",
+                "Functional_Sev",
+                "Functional_Typ"
+            ],
+            "unique_values": 7,
+            "encoding_type": "onehot",
+            "categories": [
+                "Typ",
+                "Min1",
+                "Maj1",
+                "Min2",
+                "Mod",
+                "Maj2",
+                "Sev"
+            ]
+        },
+        "GarageType": {
+            "original_feature": "GarageType",
+            "encoded_features": [
+                "GarageType_2Types",
+                "GarageType_Attchd",
+                "GarageType_Basment",
+                "GarageType_BuiltIn",
+                "GarageType_CarPort",
+                "GarageType_Detchd"
+            ],
+            "unique_values": 6,
+            "encoding_type": "onehot",
+            "categories": [
+                "Attchd",
+                "Detchd",
+                "BuiltIn",
+                "CarPort",
+                "Basment",
+                "2Types"
+            ]
+        },
+        "PavedDrive": {
+            "original_feature": "PavedDrive",
+            "encoded_features": [
+                "PavedDrive_N",
+                "PavedDrive_P",
+                "PavedDrive_Y"
+            ],
+            "unique_values": 3,
+            "encoding_type": "onehot",
+            "categories": [
+                "Y",
+                "N",
+                "P"
+            ]
+        },
+        "Fence": {
+            "original_feature": "Fence",
+            "encoded_features": [
+                "Fence_GdPrv",
+                "Fence_GdWo",
+                "Fence_MnPrv",
+                "Fence_MnWw"
+            ],
+            "unique_values": 4,
+            "encoding_type": "onehot",
+            "categories": [
+                "MnPrv",
+                "GdWo",
+                "GdPrv",
+                "MnWw"
+            ]
+        },
+        "MiscFeature": {
+            "original_feature": "MiscFeature",
+            "encoded_features": [
+                "MiscFeature_Gar2",
+                "MiscFeature_Othr",
+                "MiscFeature_Shed",
+                "MiscFeature_TenC"
+            ],
+            "unique_values": 4,
+            "encoding_type": "onehot",
+            "categories": [
+                "Shed",
+                "Gar2",
+                "Othr",
+                "TenC"
+            ]
+        },
+        "SaleType": {
+            "original_feature": "SaleType",
+            "encoded_features": [
+                "SaleType_COD",
+                "SaleType_CWD",
+                "SaleType_Con",
+                "SaleType_ConLD",
+                "SaleType_ConLI",
+                "SaleType_ConLw",
+                "SaleType_New",
+                "SaleType_Oth",
+                "SaleType_WD"
+            ],
+            "unique_values": 9,
+            "encoding_type": "onehot",
+            "categories": [
+                "WD",
+                "New",
+                "COD",
+                "ConLD",
+                "ConLI",
+                "CWD",
+                "ConLw",
+                "Con",
+                "Oth"
+            ]
+        },
+        "HouseAgeGroup": {
+            "original_feature": "HouseAgeGroup",
+            "encoded_features": [
+                "HouseAgeGroup_Historic (100+)",
+                "HouseAgeGroup_Mature (26-50)",
+                "HouseAgeGroup_Old (51-100)",
+                "HouseAgeGroup_Recent (11-25)"
+            ],
+            "unique_values": 4,
+            "encoding_type": "onehot",
+            "categories": [
+                "Recent (11-25)",
+                "Mature (26-50)",
+                "Historic (100+)",
+                "Old (51-100)"
+            ]
+        },
+        "NeighborhoodTier": {
+            "original_feature": "NeighborhoodTier",
+            "encoded_features": [
+                "NeighborhoodTier_Mid_Tier",
+                "NeighborhoodTier_Premium",
+                "NeighborhoodTier_Standard"
+            ],
+            "unique_values": 3,
+            "encoding_type": "onehot",
+            "categories": [
+                "Mid_Tier",
+                "Premium",
+                "Standard"
+            ]
+        }
+    },
+    "validation_results": {
+        "total_original_categorical": 49,
+        "encoding_strategies_used": {
+            "label": {
+                "original_features": 7,
+                "new_features": 7
+            },
+            "ordinal": {
+                "original_features": 16,
+                "new_features": 16
+            },
+            "target": {
+                "original_features": 4,
+                "new_features": 4
+            },
+            "onehot": {
+                "original_features": 22,
+                "new_features": 112
+            }
+        },
+        "new_features_created": 139,
+        "features_with_issues": [],
+        "memory_usage_change": 0
+    },
+    "encoding_artifacts": {
+        "target_encodings": {
+            "Neighborhood": {
+                "category_means": {
+                    "CollgCr": 196900.48724315068,
+                    "Veenker": 211224.3789954338,
+                    "Crawfor": 205755.2944082641,
+                    "NoRidge": 305025.88154713943,
+                    "Mitchel": 160448.27048990017,
+                    "Somerst": 220748.72873858447,
+                    "NWAmes": 188070.68625185677,
+                    "OldTown": 132509.51999109032,
+                    "BrkSide": 133082.16116035456,
+                    "Sawyer": 142046.4757012394,
+                    "NridgHt": 300713.217918438,
+                    "NAmes": 147339.5955698047,
+                    "SawyerW": 185739.1878102045,
+                    "IDOTRR": 117314.72252987468,
+                    "MeadowV": 129074.5169964485,
+                    "Edwards": 133010.74508094645,
+                    "Timber": 229471.14497716897,
+                    "Gilbert": 191513.68493150684,
+                    "StoneBr": 273476.7702544031,
+                    "ClearCr": 204237.99891852922,
+                    "NPkVill": 162813.7873107426,
+                    "Blmngtn": 189704.33181126334,
+                    "BrDale": 133888.9214963119,
+                    "SWISU": 153542.74168297453,
+                    "Blueste": 173684.32990867578
+                },
+                "global_mean": 180921.19589041095,
+                "smoothing": 10
+            },
+            "Exterior1st": {
+                "category_means": {
+                    "VinylSd": 213107.9161121983,
+                    "MetalSd": 150791.69982132223,
+                    "Wd Sdng": 151280.51369863012,
+                    "HdBoard": 163846.57740906943,
+                    "BrkFace": 192297.6993150685,
+                    "WdShing": 159062.33219178082,
+                    "CemntBd": 224540.02759019873,
+                    "Plywood": 176364.31321105178,
+                    "AsbShng": 131897.43196347033,
+                    "Stucco": 168113.1988258317,
+                    "BrkComm": 162600.99657534246,
+                    "AsphShn": 173564.72353673723,
+                    "Stone": 193850.99657534246,
+                    "ImStucc": 188291.99626400994,
+                    "CBlock": 174019.26899128268
+                },
+                "global_mean": 180921.19589041095,
+                "smoothing": 10
+            },
+            "Exterior2nd": {
+                "category_means": {
+                    "VinylSd": 213780.49019242043,
+                    "MetalSd": 151192.3703522505,
+                    "Wd Shng": 165410.66581050225,
+                    "HdBoard": 168272.6081055489,
+                    "Plywood": 168955.07209805335,
+                    "Wd Sdng": 149957.811395672,
+                    "CmentBd": 223069.17084148727,
+                    "BrkFace": 191561.77025440315,
+                    "Stucco": 162854.05441400304,
+                    "AsbShng": 136347.43196347033,
+                    "Brk Cmn": 158600.7034649476,
+                    "ImStucc": 216495.5979452055,
+                    "AsphShn": 171016.30453108533,
+                    "Stone": 173355.7305936073,
+                    "Other": 193473.81444582812,
+                    "CBlock": 174019.26899128268
+                },
+                "global_mean": 180921.19589041095,
+                "smoothing": 10
+            },
+            "MSSubClass": {
+                "category_means": {
+                    "60": 238038.2328767123,
+                    "20": 185145.99076722364,
+                    "70": 168793.67084148727,
+                    "50": 145745.71401885786,
+                    "190": 142440.29897260276,
+                    "45": 141468.72540473225,
+                    "90": 141183.03159522757,
+                    "120": 198731.8758649908,
+                    "30": 106600.7969481533,
+                    "85": 158847.06529680366,
+                    "80": 171381.35233682513,
+                    "160": 144438.31450553576,
+                    "75": 188008.15226554268,
+                    "180": 141610.59794520546,
+                    "40": 173836.56849315067
+                },
+                "global_mean": 180921.19589041095,
+                "smoothing": 10
+            }
+        }
+    }
+}

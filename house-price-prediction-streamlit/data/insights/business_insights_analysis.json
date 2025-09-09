@@ -1,0 +1,159 @@
+{
+  "executive_summary": {
+    "champion_model": "CatBoostRegressor",
+    "model_accuracy": "90.4%",
+    "top_value_drivers": [
+      "TotalSF",
+      "QualityScore",
+      "Neighborhood_encoded",
+      "OverallQual",
+      "GrLivArea_transformed"
+    ],
+    "prediction_reliability": "High"
+  },
+  "key_drivers": {
+    "location_factors": {
+      "LotArea": 0.006332470907511188,
+      "MasVnrArea": 0.0014158748191488405,
+      "GrLivArea": 0.008482805093171624,
+      "GarageArea": 0.005312777830428078,
+      "LivingAreaRatio": 0.0006458074796903755,
+      "PoolArea": 0.00015585570700625727,
+      "MasVnrArea_WasMissing": 1.0742505868287197e-05,
+      "PoolArea_transformed": 0.00018999286285160984,
+      "LotArea_transformed": 0.0,
+      "LivingAreaRatio_transformed": 0.00047892339704979503,
+      "MasVnrArea_transformed": 0.0,
+      "GrLivArea_transformed": 0.009335442527376272,
+      "MasVnrArea_WasMissing_encoded": 2.8505761942083184e-05,
+      "Neighborhood_encoded": 0.011456031019938404,
+      "NeighborhoodTier_Mid_Tier": 0.0009803056783936272,
+      "NeighborhoodTier_Premium": 0.0025991667540534733,
+      "NeighborhoodTier_Standard": 0.005231174295795536
+    },
+    "size_factors": {
+      "LotArea": 0.006332470907511188,
+      "MasVnrArea": 0.0014158748191488405,
+      "GrLivArea": 0.008482805093171624,
+      "GarageArea": 0.005312777830428078,
+      "LivingAreaRatio": 0.0006458074796903755,
+      "RoomDensity": 0.001305351965955514,
+      "BathBedroomRatio": 0.0006173482879284508,
+      "BsmtFullBath": 0.0010034300534524866,
+      "BsmtHalfBath": 1.826500249306845e-05,
+      "FullBath": 0.0029027423609410178,
+      "HalfBath": 0.0019595562586205693,
+      "BedroomAbvGr": 0.0008337565722849272,
+      "PoolArea": 0.00015585570700625727,
+      "MasVnrArea_WasMissing": 1.0742505868287197e-05,
+      "TotalBaths": 0.0060331001639304755,
+      "PoolArea_transformed": 0.00018999286285160984,
+      "LotArea_transformed": 0.0,
+      "BsmtHalfBath_transformed": 3.945085799010977e-05,
+      "LivingAreaRatio_transformed": 0.00047892339704979503,
+      "MasVnrArea_transformed": 0.0,
+      "BathBedroomRatio_transformed": 0.002548024069260818,
+      "GrLivArea_transformed": 0.009335442527376272,
+      "MasVnrArea_WasMissing_encoded": 2.8505761942083184e-05
+    },
+    "quality_factors": {
+      "QualityScore": 0.01758695410823291,
+      "BasementQualityScore": 0.003027531826327121,
+      "AgeQualityInteraction": 0.0020342969211930334,
+      "GarageQualityScore": 0.0020301778185917428,
+      "GarageQualityScore_transformed": 0.0,
+      "AgeQualityInteraction_transformed": 0.0,
+      "Condition1_encoded": 0.002231827065125753,
+      "Condition2_encoded": 1.9517122980431634e-05,
+      "SaleCondition_encoded": 0.0035071958076545798
+    },
+    "overall_ranking": [
+      [
+        "TotalSF",
+        0.025242784569210298
+      ],
+      [
+        "QualityScore",
+        0.01758695410823291
+      ],
+      [
+        "Neighborhood_encoded",
+        0.011456031019938404
+      ],
+      [
+        "GrLivArea_transformed",
+        0.009335442527376272
+      ],
+      [
+        "OverallQual",
+        0.008869201096092533
+      ],
+      [
+        "GrLivArea",
+        0.008482805093171624
+      ],
+      [
+        "Fireplaces",
+        0.007556100730954687
+      ],
+      [
+        "LotArea",
+        0.006332470907511188
+      ],
+      [
+        "TotalBaths",
+        0.0060331001639304755
+      ],
+      [
+        "GarageArea",
+        0.005312777830428078
+      ]
+    ]
+  },
+  "investment_insights": {},
+  "market_patterns": {
+    "price_distribution": {
+      "mean": 7.841941409828676,
+      "median": 7.834792228497234,
+      "std": 0.15591741494948103,
+      "min": 7.198098055807754,
+      "max": 8.405654108746969
+    },
+    "market_segments": {
+      "Budget": 365,
+      "Mid-range": 365,
+      "Premium": 365,
+      "Luxury": 365
+    },
+    "market_concentration": "balanced"
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "Prioritize QualityScore improvements for maximum ROI"
+    ],
+    "investment_strategy": [
+      "Focus investment in high-value Neighborhood_encoded areas"
+    ],
+    "market_positioning": [
+      "Leverage GrLivArea_transformed as key selling point",
+      "Leverage GrLivArea as key selling point",
+      "Leverage LotArea as key selling point",
+      "Leverage GarageArea as key selling point"
+    ],
+    "risk_mitigation": [
+      "Monitor market trends affecting top price drivers",
+      "Diversify property portfolio across different segments",
+      "Regular model updates to maintain prediction accuracy"
+    ]
+  },
+  "risk_factors": {
+    "model_confidence": "high",
+    "prediction_stability": "stable",
+    "market_volatility_indicators": [
+      "YearBuilt",
+      "YearRemodAdd",
+      "YearsSinceRemodel",
+      "YearsSinceSold"
+    ]
+  }
+}

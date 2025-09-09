@@ -1,0 +1,52 @@
+{
+  "pipeline_settings": {
+    "random_state": 42,
+    "cv_folds": 5,
+    "n_optimization_iterations": 50,
+    "top_models_to_optimize": 5,
+    "statistical_significance_level": 0.05
+  },
+  "model_portfolio": {
+    "linear_models": {
+      "linear_regression": {"enabled": true},
+      "ridge": {"enabled": true},
+      "lasso": {"enabled": true},
+      "elastic_net": {"enabled": true},
+      "bayesian_ridge": {"enabled": true},
+      "huber": {"enabled": true}
+    },
+    "tree_based": {
+      "random_forest": {"enabled": true},
+      "extra_trees": {"enabled": true},
+      "gradient_boosting": {"enabled": true}
+    },
+    "advanced_boosting": {
+      "xgboost": {"enabled": true},
+      "lightgbm": {"enabled": true},
+      "catboost": {"enabled": true}
+    },
+    "neural_networks": {
+      "mlp_regressor": {"enabled": true}
+    },
+    "support_vector": {
+      "svr": {"enabled": true}
+    }
+  },
+  "ensemble_methods": {
+    "voting_regressor": {"enabled": true},
+    "weighted_voting": {"enabled": true},
+    "stacking": {"enabled": false}
+  },
+  "evaluation_metrics": {
+    "primary": "rmse",
+    "secondary": ["mae", "r2", "mape"],
+    "cross_validation": true,
+    "statistical_tests": true
+  },
+  "output_settings": {
+    "save_models": true,
+    "generate_visualizations": true,
+    "create_submission": true,
+    "detailed_logging": true
+  }
+}

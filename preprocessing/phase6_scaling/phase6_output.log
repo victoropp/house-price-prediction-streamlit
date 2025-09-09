@@ -1,0 +1,142 @@
+PHASE 6: SCALING AND FINAL PREPARATION PIPELINE
+======================================================================
+Loading cleaned encoded data from Phase 5...
+Training data: 1460 samples, 224 features
+Test data: 1459 samples, 224 features
+Numerical features: 38
+Encoded features: 73
+Binary features: 112
+Target variable: BoxCox transformed (lambda: -0.077)
+Original target skewness: 1.881
+Transformed target skewness: -0.009
+
+============================================================
+HANDLING MISSING VALUES
+============================================================
+Features with missing values in training: 10
+Top missing value features:
+  PoolQC_encoded: 1453 (99.5%)
+  Alley_encoded: 1369 (93.8%)
+  FireplaceQu_encoded: 690 (47.3%)
+  GarageCond_encoded: 81 (5.5%)
+  GarageFinish_encoded: 81 (5.5%)
+  GarageQual_encoded: 81 (5.5%)
+  BsmtFinType2_encoded: 38 (2.6%)
+  BsmtQual_encoded: 37 (2.5%)
+  BsmtCond_encoded: 37 (2.5%)
+  BsmtFinType1_encoded: 37 (2.5%)
+
+Imputing 10 encoded features with missing values...
+  Alley_encoded: filled with median (0.0)
+  BsmtQual_encoded: filled with median (4.0)
+  BsmtCond_encoded: filled with median (3.0)
+  BsmtFinType1_encoded: filled with median (4.0)
+  BsmtFinType2_encoded: filled with median (1.0)
+  FireplaceQu_encoded: filled with median (4.0)
+  GarageFinish_encoded: filled with median (3.0)
+  GarageQual_encoded: filled with median (3.0)
+  GarageCond_encoded: filled with median (3.0)
+  PoolQC_encoded: filled with median (4.0)
+
+Final missing values - Training: 0, Test: 22
+WARNING: Some missing values remain
+
+============================================================
+ANALYZING FEATURE DISTRIBUTIONS FOR SCALING
+============================================================
+Normal distribution features: 0
+Highly skewed features (|skew| > 1): 23
+High outlier features (>5% outliers): 12
+
+============================================================
+EVALUATING SCALING METHODS
+============================================================
+Evaluating StandardScaler...
+  CV RMSE: 0.0540 (+/- 0.0013)
+  Feature variance: 1.0007
+  Scale consistency: 0.5773
+Evaluating RobustScaler...
+  CV RMSE: 0.0540 (+/- 0.0013)
+  Feature variance: 7430.8539
+  Scale consistency: 0.1042
+Evaluating MinMaxScaler...
+  CV RMSE: 0.0533 (+/- 0.0013)
+  Feature variance: 0.0287
+  Scale consistency: 0.8995
+Evaluating QuantileTransformer...
+  CV RMSE: 0.0522 (+/- 0.0010)
+  Feature variance: 3.3557
+  Scale consistency: 0.7288
+Evaluating PowerTransformer...
+  CV RMSE: 0.0526 (+/- 0.0011)
+  Feature variance: 1.0007
+  Scale consistency: 0.6383
+
+BEST SCALING METHOD: MinMaxScaler
+CV RMSE: 0.0533
+Scale Consistency: 0.8995
+
+============================================================
+APPLYING FINAL SCALING
+============================================================
+Scaling 38 numerical features with MinMaxScaler...
+Final training data shape: (1460, 224)
+Final test data shape: (1459, 223)
+  - Scaled numerical features: 38
+  - Encoded features: 73
+  - Binary features: 112
+
+============================================================
+VALIDATING FINAL DATASET
+============================================================
+Data Quality:
+  Training missing values: 0
+  Test missing values: 22
+  Training shape: (1460, 224)
+  Test shape: (1459, 223)
+
+Feature Consistency:
+  Feature mismatch count: 0
+
+Target Variable:
+  Mean: 7.842
+  Std: 0.158
+  Skewness: -0.009
+
+Scaled Numerical Features:
+  Average feature mean: 0.252
+  Average feature std: 0.149
+
+WARNING: Some validation checks failed!
+
+Generating final dataset visualization...
+
+Saving final datasets and configuration...
+Traceback (most recent call last):
+  File "C:\Users\victo\Documents\Data_Science_Projects\house_price_prediction_advanced\preprocessing\phase6_scaling\scaling_final_preparation_pipeline.py", line 905, in <module>
+    pipeline.run_complete_pipeline()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\victo\Documents\Data_Science_Projects\house_price_prediction_advanced\preprocessing\phase6_scaling\scaling_final_preparation_pipeline.py", line 901, in run_complete_pipeline
+    .save_final_datasets())
+     ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\victo\Documents\Data_Science_Projects\house_price_prediction_advanced\preprocessing\phase6_scaling\scaling_final_preparation_pipeline.py", line 880, in save_final_datasets
+    json.dump(final_config, f, indent=4)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\victo\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\victo\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\victo\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\victo\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\victo\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  [Previous line repeated 1 more time]
+  File "C:\Users\victo\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\victo\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type StandardScaler is not JSON serializable

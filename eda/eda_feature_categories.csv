@@ -1,0 +1,4 @@
+Category,Count,Features
+Year_Features,4,"YearBuilt, YearRemodAdd, GarageYrBlt, YrSold"
+Area_Features,14,"LotArea, MasVnrArea, BsmtFinSF1, BsmtFinSF2, BsmtUnfSF, TotalBsmtSF, 1stFlrSF, 2ndFlrSF, LowQualFinSF, GrLivArea, GarageArea, WoodDeckSF, OpenPorchSF, PoolArea"
+Quality_Features,13,"Condition1, Condition2, OverallQual, OverallCond, ExterQual, ExterCond, BsmtQual, BsmtCond, LowQualFinSF, KitchenQual, GarageQual, GarageCond, SaleCondition"

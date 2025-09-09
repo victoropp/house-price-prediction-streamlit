@@ -1,0 +1,395 @@
+{
+    "feature_engineering_log": {
+        "composite_area_features": [
+            {
+                "feature": "TotalSF",
+                "description": "Total square footage (basement + 1st + 2nd floor)",
+                "components": [
+                    "TotalBsmtSF",
+                    "1stFlrSF",
+                    "2ndFlrSF"
+                ],
+                "min_value": 334.0,
+                "max_value": 11752.0,
+                "mean_value": 2547.482699554642
+            },
+            {
+                "feature": "TotalPorchSF",
+                "description": "Total porch area (all porch types)",
+                "components": [
+                    "OpenPorchSF",
+                    "EnclosedPorch",
+                    "3SsnPorch",
+                    "ScreenPorch"
+                ],
+                "min_value": 0,
+                "max_value": 1207,
+                "mean_value": 89.2497430626927
+            },
+            {
+                "feature": "TotalBaths",
+                "description": "Total bathroom count (half baths = 0.5)",
+                "components": [
+                    "FullBath",
+                    "HalfBath",
+                    "BsmtFullBath",
+                    "BsmtHalfBath"
+                ],
+                "min_value": 1.0,
+                "max_value": 7.0,
+                "mean_value": 2.2183750428522453
+            },
+            {
+                "feature": "BsmtFinishedRatio",
+                "description": "Ratio of finished basement to total basement area",
+                "components": [
+                    "BsmtFinSF1",
+                    "BsmtFinSF2",
+                    "TotalBsmtSF"
+                ],
+                "min_value": 0.0,
+                "max_value": 1.0,
+                "mean_value": 0.4372771911338724
+            },
+            {
+                "feature": "LivingAreaRatio",
+                "description": "Ratio of above ground living area to lot area",
+                "components": [
+                    "GrLivArea",
+                    "LotArea"
+                ],
+                "min_value": 0.009458988594392436,
+                "max_value": 1.0434027777777777,
+                "mean_value": 0.18271374708482496
+            }
+        ],
+        "temporal_features": [
+            {
+                "feature": "HouseAge",
+                "description": "Age of house as of 2023",
+                "source": "YearBuilt",
+                "min_value": 13,
+                "max_value": 151,
+                "mean_value": 51.687221651250425
+            },
+            {
+                "feature": "YearsSinceRemodel",
+                "description": "Years since last remodel as of 2023",
+                "source": "YearRemodAdd",
+                "min_value": 13,
+                "max_value": 73,
+                "mean_value": 38.73552586502227
+            },
+            {
+                "feature": "WasRemodeled",
+                "description": "Binary indicator if house was ever remodeled",
+                "source": "YearRemodAdd vs YearBuilt",
+                "min_value": 0,
+                "max_value": 1,
+                "mean_value": 0.46557040082219936
+            },
+            {
+                "feature": "GarageAge",
+                "description": "Age of garage as of 2023 (0 if no garage)",
+                "source": "GarageYrBlt",
+                "min_value": -184,
+                "max_value": 128,
+                "mean_value": 42.441589585474475
+            },
+            {
+                "feature": "YearsSinceSold",
+                "description": "Years since sale as of 2023",
+                "source": "YrSold",
+                "min_value": 13,
+                "max_value": 17,
+                "mean_value": 15.207262761219596
+            },
+            {
+                "feature": "HouseAgeGroup",
+                "description": "Categorical house age groups",
+                "source": "HouseAge",
+                "categories": [
+                    "New (0-10)",
+                    "Recent (11-25)",
+                    "Mature (26-50)",
+                    "Old (51-100)",
+                    "Historic (100+)"
+                ],
+                "distribution": {
+                    "Old (51-100)": 1194,
+                    "Recent (11-25)": 835,
+                    "Mature (26-50)": 613,
+                    "Historic (100+)": 277,
+                    "New (0-10)": 0
+                }
+            }
+        ],
+        "neighborhood_tiers": {
+            "tier_definitions": {
+                "Premium": {
+                    "neighborhoods": [
+                        "NoRidge",
+                        "NridgHt",
+                        "StoneBr",
+                        "Timber",
+                        "Veenker",
+                        "Somerst",
+                        "ClearCr"
+                    ],
+                    "count": 7,
+                    "price_threshold": 212565.42857142858,
+                    "avg_price": 268718.62583881046
+                },
+                "Mid_Tier": {
+                    "neighborhoods": [
+                        "Crawfor",
+                        "CollgCr",
+                        "Blmngtn",
+                        "Gilbert",
+                        "NWAmes",
+                        "SawyerW",
+                        "Mitchel",
+                        "NAmes",
+                        "NPkVill",
+                        "SWISU",
+                        "Blueste",
+                        "Sawyer"
+                    ],
+                    "count": 12,
+                    "price_range": [
+                        136793.13513513515,
+                        212565.42857142858
+                    ],
+                    "avg_price": 169468.15788645533
+                },
+                "Standard": {
+                    "neighborhoods": [
+                        "OldTown",
+                        "Edwards",
+                        "BrkSide",
+                        "BrDale",
+                        "IDOTRR",
+                        "MeadowV"
+                    ],
+                    "count": 6,
+                    "price_threshold": 136793.13513513515,
+                    "avg_price": 114078.84283018544
+                }
+            },
+            "tier_distribution": {
+                "Mid_Tier": 1608,
+                "Standard": 701,
+                "Premium": 610
+            }
+        },
+        "quality_features": [
+            {
+                "feature": "QualityScore",
+                "description": "Weighted composite quality score",
+                "components": [
+                    "OverallQual",
+                    "OverallCond",
+                    "ExterQual",
+                    "ExterCond",
+                    "BsmtQual",
+                    "BsmtCond",
+                    "KitchenQual"
+                ],
+                "weights": {
+                    "OverallQual": 0.3,
+                    "OverallCond": 0.2,
+                    "ExterQual": 0.2,
+                    "ExterCond": 0.1,
+                    "BsmtQual": 0.1,
+                    "BsmtCond": 0.05,
+                    "KitchenQual": 0.05
+                },
+                "min_value": 1.4500000000000002,
+                "max_value": 6.95,
+                "mean_value": 4.596711202466598
+            },
+            {
+                "feature": "BasementQualityScore",
+                "description": "Average basement quality score",
+                "components": [
+                    "BsmtQual",
+                    "BsmtCond",
+                    "BsmtExposure"
+                ],
+                "min_value": 0.0,
+                "max_value": 4.333333333333333,
+                "mean_value": 2.258079250885006
+            },
+            {
+                "feature": "GarageQualityScore",
+                "description": "Average garage quality score",
+                "components": [
+                    "GarageQual",
+                    "GarageCond"
+                ],
+                "min_value": 0.0,
+                "max_value": 5.0,
+                "mean_value": 2.8048989379924634
+            }
+        ],
+        "ratio_features": [
+            {
+                "feature": "RoomDensity",
+                "description": "Rooms per 1000 sq ft of living area",
+                "components": [
+                    "TotRmsAbvGrd",
+                    "GrLivArea"
+                ],
+                "mean_value": 4.484912884732951
+            },
+            {
+                "feature": "BathBedroomRatio",
+                "description": "Ratio of total bathrooms to bedrooms",
+                "components": [
+                    "TotalBaths",
+                    "BedroomAbvGr"
+                ],
+                "mean_value": 0.8378728145354816
+            },
+            {
+                "feature": "GarageLivingRatio",
+                "description": "Ratio of garage area to living area",
+                "components": [
+                    "GarageArea",
+                    "GrLivArea"
+                ],
+                "mean_value": 0.3254822668063027
+            },
+            {
+                "feature": "LotCoverageRatio",
+                "description": "Ratio of total building area to lot area",
+                "components": [
+                    "TotalSF",
+                    "LotArea"
+                ],
+                "mean_value": 0.3081435740318973
+            },
+            {
+                "feature": "AgeQualityInteraction",
+                "description": "Interaction between house age and quality score",
+                "components": [
+                    "HouseAge",
+                    "QualityScore"
+                ],
+                "mean_value": 227.98992805755398
+            }
+        ],
+        "validation": {
+            "original_feature_count": 81,
+            "new_feature_count": 23,
+            "total_feature_count": 103,
+            "feature_increase_pct": 28.39506172839506,
+            "issues": [
+                "BathBedroomRatio: 2 null values",
+                "GarageLivingRatio: 1 null values",
+                "TotalBaths: 2 null values"
+            ],
+            "new_features_list": [
+                "AgeQualityInteraction",
+                "BasementQualityScore",
+                "BathBedroomRatio",
+                "BsmtFinishedRatio",
+                "GarageAge",
+                "GarageLivingRatio",
+                "GarageQualityScore",
+                "GarageYrBlt_WasMissing",
+                "HouseAge",
+                "HouseAgeGroup",
+                "LivingAreaRatio",
+                "LotCoverageRatio",
+                "LotFrontage_WasMissing",
+                "MasVnrArea_WasMissing",
+                "NeighborhoodTier",
+                "QualityScore",
+                "RoomDensity",
+                "TotalBaths",
+                "TotalPorchSF",
+                "TotalSF",
+                "WasRemodeled",
+                "YearsSinceRemodel",
+                "YearsSinceSold"
+            ]
+        }
+    },
+    "neighborhood_tiers": {
+        "Premium": {
+            "neighborhoods": [
+                "NoRidge",
+                "NridgHt",
+                "StoneBr",
+                "Timber",
+                "Veenker",
+                "Somerst",
+                "ClearCr"
+            ],
+            "count": 7,
+            "price_threshold": 212565.42857142858,
+            "avg_price": 268718.62583881046
+        },
+        "Mid_Tier": {
+            "neighborhoods": [
+                "Crawfor",
+                "CollgCr",
+                "Blmngtn",
+                "Gilbert",
+                "NWAmes",
+                "SawyerW",
+                "Mitchel",
+                "NAmes",
+                "NPkVill",
+                "SWISU",
+                "Blueste",
+                "Sawyer"
+            ],
+            "count": 12,
+            "price_range": [
+                136793.13513513515,
+                212565.42857142858
+            ],
+            "avg_price": 169468.15788645533
+        },
+        "Standard": {
+            "neighborhoods": [
+                "OldTown",
+                "Edwards",
+                "BrkSide",
+                "BrDale",
+                "IDOTRR",
+                "MeadowV"
+            ],
+            "count": 6,
+            "price_threshold": 136793.13513513515,
+            "avg_price": 114078.84283018544
+        }
+    },
+    "new_features_created": [
+        "AgeQualityInteraction",
+        "BasementQualityScore",
+        "BathBedroomRatio",
+        "BsmtFinishedRatio",
+        "GarageAge",
+        "GarageLivingRatio",
+        "GarageQualityScore",
+        "GarageYrBlt_WasMissing",
+        "HouseAge",
+        "HouseAgeGroup",
+        "LivingAreaRatio",
+        "LotCoverageRatio",
+        "LotFrontage_WasMissing",
+        "MasVnrArea_WasMissing",
+        "NeighborhoodTier",
+        "QualityScore",
+        "RoomDensity",
+        "TotalBaths",
+        "TotalPorchSF",
+        "TotalSF",
+        "WasRemodeled",
+        "YearsSinceRemodel",
+        "YearsSinceSold"
+    ]
+}
