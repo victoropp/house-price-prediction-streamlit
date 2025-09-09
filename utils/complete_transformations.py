@@ -299,7 +299,7 @@ class CompleteHouseTransformations:
                 'label': self.get_friendly_name(feature_name),
                 'options': options,
                 'index': options.index('TA') if 'TA' in options else 0,
-                'help': 'Po=Poor, Fa=Fair, TA=Typical/Average, Gd=Good, Ex=Excellent'
+                'help': 'Po=Poor, Fa=Fair, TA=Average, Gd=Good, Ex=Excellent'
             }
             
         elif feature_type == 'binary_encoded':

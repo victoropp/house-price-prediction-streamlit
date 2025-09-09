@@ -1745,6 +1745,14 @@ def show_batch_prediction_interface(data_loader, visualizer, model, train_data, 
         - `OverallQual`: 6, 7, 7 (overall material and finish quality)
         - `OverallCond`: 5, 8, 5 (overall condition rating)
         
+        **📊 Quality Abbreviation Reference:**
+        Quality features use these abbreviations (shown as ratings):
+        - **Ex** = Excellent (5 stars) - Premium quality
+        - **Gd** = Good (4 stars) - Above average quality  
+        - **TA** = Average (3 stars) - Standard/typical quality
+        - **Fa** = Fair (2 stars) - Below average, needs attention
+        - **Po** = Poor (1 star) - Major issues, renovation needed
+        
         **🚗 Count Features:**
         - `BedroomAbvGr`: 3, 3, 3 (bedrooms above grade)
         - `FullBath`: 2, 2, 2 (full bathrooms above grade)
