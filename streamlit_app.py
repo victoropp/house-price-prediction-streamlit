@@ -209,7 +209,7 @@ def show_welcome_page(data_loader, visualizer):
     # Load dynamic metrics
     model_metrics = data_loader.get_model_performance_metrics()
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     
     with col1:
         accuracy = model_metrics.get('r2_score', 0.904)
@@ -233,14 +233,6 @@ def show_welcome_page(data_loader, visualizer):
             "Prediction Error (RMSE)", 
             f"{rmse:.4f}",
             delta="Cross-Validated"
-        )
-    
-    with col4:
-        training_time = model_metrics.get('execution_time_minutes', 24)
-        st.metric(
-            "Training Time", 
-            f"{training_time:.1f}min",
-            delta="Full Pipeline"
         )
     
     # Feature Highlights
