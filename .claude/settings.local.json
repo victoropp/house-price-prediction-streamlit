@@ -13,7 +13,14 @@
       "Bash(git add:*)",
       "Bash(git rm:*)",
       "Bash(find:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(streamlit cache:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git remote remove:*)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:house-price-prediction-app-videbimusai.streamlit.app)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []
