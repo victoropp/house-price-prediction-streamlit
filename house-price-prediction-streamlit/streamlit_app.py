@@ -168,16 +168,17 @@ def show_welcome_page(data_loader, visualizer):
             
         st.markdown("""
         <div style='background: linear-gradient(135deg, #2E8B5720, #4682B420); 
-                    padding: 2rem; border-radius: 15px; height: 300px;
-                    border-left: 5px solid #2E8B57;'>
-            <h3 style='color: #2E8B57;'>For Property Professionals</h3>
-            <ul>
-                <li><strong>Institutional-Grade Valuations</strong><br/>Same techniques used by leading investment firms</li>
-                <li><strong>Market Intelligence</strong><br/>Investment opportunities and value drivers</li>
-                <li><strong>Professional Reports</strong><br/>Executive dashboards and strategic insights</li>
-                <li><strong>Easy-to-Use Interface</strong><br/>No technical expertise required</li>
+                    padding: 1.5rem; border-radius: 15px; min-height: 320px;
+                    border-left: 5px solid #2E8B57; overflow: hidden;
+                    box-sizing: border-box; display: flex; flex-direction: column;'>
+            <h3 style='color: #2E8B57; margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem;'>For Property Professionals</h3>
+            <ul style='margin: 0; padding-left: 1.2rem; flex-grow: 1; line-height: 1.4;'>
+                <li style='margin-bottom: 0.8rem;'><strong>Institutional-Grade Valuations</strong><br/><span style='font-size: 0.9rem; color: #666;'>Same techniques used by leading investment firms</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Market Intelligence</strong><br/><span style='font-size: 0.9rem; color: #666;'>Investment opportunities and value drivers</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Professional Reports</strong><br/><span style='font-size: 0.9rem; color: #666;'>Executive dashboards and strategic insights</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Easy-to-Use Interface</strong><br/><span style='font-size: 0.9rem; color: #666;'>No technical expertise required</span></li>
             </ul>
-            <p><strong>Perfect for:</strong> Appraisers, Agents, Investors, Developers</p>
+            <p style='margin-top: auto; margin-bottom: 0; padding-top: 1rem; font-weight: bold; font-size: 0.9rem; color: #2E8B57;'>Perfect for: Appraisers, Agents, Investors, Developers</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -188,16 +189,17 @@ def show_welcome_page(data_loader, visualizer):
             
         st.markdown("""
         <div style='background: linear-gradient(135deg, #4682B420, #FF634720); 
-                    padding: 2rem; border-radius: 15px; height: 300px;
-                    border-left: 5px solid #4682B4;'>
-            <h3 style='color: #4682B4;'>For Technical Professionals</h3>
-            <ul>
-                <li><strong>Production ML Pipeline</strong><br/>Complete 9-phase methodology with audit trails</li>
-                <li><strong>Model Interpretability</strong><br/>SHAP analysis and feature importance</li>
-                <li><strong>Performance Metrics</strong><br/>Cross-validated R² = 0.904, comprehensive evaluation</li>
-                <li><strong>Technical Documentation</strong><br/>Architecture, algorithms, and validation</li>
+                    padding: 1.5rem; border-radius: 15px; min-height: 320px;
+                    border-left: 5px solid #4682B4; overflow: hidden;
+                    box-sizing: border-box; display: flex; flex-direction: column;'>
+            <h3 style='color: #4682B4; margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem;'>For Technical Professionals</h3>
+            <ul style='margin: 0; padding-left: 1.2rem; flex-grow: 1; line-height: 1.4;'>
+                <li style='margin-bottom: 0.8rem;'><strong>Production ML Pipeline</strong><br/><span style='font-size: 0.9rem; color: #666;'>Complete 9-phase methodology with audit trails</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Model Interpretability</strong><br/><span style='font-size: 0.9rem; color: #666;'>SHAP analysis and feature importance</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Performance Metrics</strong><br/><span style='font-size: 0.9rem; color: #666;'>Cross-validated R² = 0.904, comprehensive evaluation</span></li>
+                <li style='margin-bottom: 0.8rem;'><strong>Technical Documentation</strong><br/><span style='font-size: 0.9rem; color: #666;'>Architecture, algorithms, and validation</span></li>
             </ul>
-            <p><strong>Perfect for:</strong> ML Engineers, Data Scientists, Researchers</p>
+            <p style='margin-top: auto; margin-bottom: 0; padding-top: 1rem; font-weight: bold; font-size: 0.9rem; color: #4682B4;'>Perfect for: ML Engineers, Data Scientists, Researchers</p>
         </div>
         """, unsafe_allow_html=True)
     
